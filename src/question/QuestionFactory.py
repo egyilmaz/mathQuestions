@@ -50,3 +50,18 @@ class QuestionFactory:
         if qtype == 4:
             from src.question.Question5 import Question5
             return Question5()
+        if qtype == 5:
+            from src.question.Question6 import Question6
+            return Question6()
+        if qtype == 6:
+            from src.question.Question7 import Question7
+            return Question7()
+        if qtype == 7:
+            from src.question.Question8 import Question8
+            return Question8()
+        if qtype == 8:
+            from src.question.Question9 import Question9
+            return Question9()
+        if qtype == 9:
+            from src.question.Question12 import Question10
+            return Question10()
