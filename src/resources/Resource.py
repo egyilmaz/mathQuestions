@@ -1,5 +1,5 @@
-subjects = ["George", "Dragon", "Emily", "Stuart"]
-items = ["marbles", "pens", "pencils"]
+subjects = ["George", "Dragon", "Emily", "Stuart", "Defne", "Aya", "Alba", "Talha", "Alina"]
+items = ["marbles", "pens", "pencils", "flowers", "books", "CDs", "coins", "apples", "oranges", "masks"]
 args = ['X', 'Y', 'A', 'B', 'C']
 values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15, 20, 30, 40, 50, 60, 70, 80, 90]
 coeff = [2, 3, 4, 5, 10, 100]
