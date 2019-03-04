@@ -13,7 +13,7 @@ class Question12:
         self.spent = random.choice(pound)
         self.got = self.spent / self.ratio
         self.remaining = self.got - self.spent
-        self.body = "{subj} spent {ratio} of her money on {item} and left with {rem}. How much money she has spent?"\
+        self.body = "{subj} spent {ratio} of her money on {item} and left with {rem}. How much money has she spent?"\
             .format(subj=self.subject, ratio=self.ratio, item=self.item, rem=self.remaining)
 
     def question(self):
