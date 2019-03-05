@@ -10,8 +10,8 @@ class Question12:
         self.subject = random.choice(girls)
         self.item = random.choice(items)
         self.ratio = random.choice(simple_fractions)
-        self.spent = random.choice(pound)
-        self.got = self.spent / self.ratio
+        self.got = self.ratio.denominator*random.choice(range(2, 10))
+        self.spent = self.got * self.ratio
         self.remaining = self.got - self.spent
         self.body = "{subj} spent {ratio} of her money on {item} and left with {rem}. How much money has she spent?"\
             .format(subj=self.subject, ratio=self.ratio, item=self.item, rem=self.remaining)

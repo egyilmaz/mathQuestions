@@ -14,6 +14,7 @@ slow_speeds = [5, 10, 15, 20, 25]
 duration = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 pound = [2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 100]
 pence = [1, 2, 5, 10, 20, 50]
-simple_fractions = [Fraction(1, 2), Fraction(1, 3), Fraction(1, 4), Fraction(1, 5), Fraction(2, 4),
-                    Fraction(3, 6), Fraction(1, 10), Fraction(2, 3), Fraction(4, 5), Fraction(6, 7)
+simple_fractions = [Fraction(1, 2), Fraction(1, 3), Fraction(1, 4), Fraction(1, 5), Fraction(1, 6), Fraction(1, 7),
+                    Fraction(1, 8), Fraction(1, 9), Fraction(2, 10), Fraction(3, 10), Fraction(4, 10)]
+random_fractions = [Fraction(2, 4), Fraction(3, 6), Fraction(1, 10), Fraction(2, 3), Fraction(4, 5), Fraction(6, 7)
                     , Fraction(3, 8), Fraction(5, 12), Fraction(8, 9), Fraction(3, 7), Fraction(2, 7)]
