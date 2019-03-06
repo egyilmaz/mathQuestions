@@ -1,7 +1,7 @@
 import random
-from src.question.Types import Types
-from src.resources.Resource import args, consts, coeff, values
-from src.utils.Utility import ask_interactive_1arg
+from question.Types import Types
+from resources.Resource import args, consts, coeff, values
+from utils.Utility import ask_interactive_1arg
 
 
 # Question type is Ax + B = C,

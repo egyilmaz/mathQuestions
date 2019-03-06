@@ -1,7 +1,7 @@
 import random
-from src.question.Types import Types
-from src.resources.Resource import fast_vehicles, fast_speeds, duration, subjects
-from src.utils.Utility import ask_interactive_1arg, get_two_distinct
+from question.Types import Types
+from resources.Resource import fast_vehicles, fast_speeds, duration, subjects
+from utils.Utility import ask_interactive_1arg, get_two_distinct
 
 
 class Question9:
