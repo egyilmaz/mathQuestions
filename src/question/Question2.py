@@ -1,7 +1,7 @@
 import random
-from src.question.Types import Types
-from src.utils.Utility import get_two_distinct, ask_interactive_2arg
-from src.resources.Resource import subjects, values, items
+from question.Types import Types
+from utils.Utility import get_two_distinct, ask_interactive_2arg
+from resources.Resource import subjects, values, items
 
 
 # Question type is x - N = y, worded as, y has N less items then x.

@@ -1,4 +1,4 @@
-from src.question.Types import Output
+from question.Types import Output
 
 
 class QuestionFactory:
@@ -36,55 +36,55 @@ class QuestionFactory:
     @staticmethod
     def __get_question__(qtype):
         if qtype == 0:
-            from src.question.Question1 import Question1
+            from question.Question1 import Question1
             return Question1()
         if qtype == 1:
-            from src.question.Question2 import Question2
+            from question.Question2 import Question2
             return Question2()
         if qtype == 2:
-            from src.question.Question3 import Question3
+            from question.Question3 import Question3
             return Question3()
         if qtype == 3:
-            from src.question.Question4 import Question4
+            from question.Question4 import Question4
             return Question4()
         if qtype == 4:
-            from src.question.Question5 import Question5
+            from question.Question5 import Question5
             return Question5()
         if qtype == 5:
-            from src.question.Question6 import Question6
+            from question.Question6 import Question6
             return Question6()
         if qtype == 6:
-            from src.question.Question7 import Question7
+            from question.Question7 import Question7
             return Question7()
         if qtype == 7:
-            from src.question.Question8 import Question8
+            from question.Question8 import Question8
             return Question8()
         if qtype == 8:
-            from src.question.Question9 import Question9
+            from question.Question9 import Question9
             return Question9()
         if qtype == 9:
-            from src.question.Question10 import Question10
+            from question.Question10 import Question10
             return Question10()
         if qtype == 10:
-            from src.question.Question11 import Question11
+            from question.Question11 import Question11
             return Question11()
         if qtype == 11:
-            from src.question.Question12 import Question12
+            from question.Question12 import Question12
             return Question12()
         if qtype == 12:
-            from src.question.Question13 import Question13
+            from question.Question13 import Question13
             return Question13()
         if qtype == 13:
-            from src.question.Question14 import Question14
+            from question.Question14 import Question14
             return Question14()
         if qtype == 14:
-            from src.question.Question15 import Question15
+            from question.Question15 import Question15
             return Question15()
         if qtype == 15:
-            from src.question.Question16 import Question16
+            from question.Question16 import Question16
             return Question16()
         if qtype == 16:
-            from src.question.Question17 import Question17
+            from question.Question17 import Question17
             return Question17()
         if qtype == 17:
             from src.question.Question18 import Question18

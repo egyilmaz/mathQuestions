@@ -1,7 +1,7 @@
 import random
-from src.question.Types import Types
-from src.resources.Resource import boys, items, simple_fractions
-from src.utils.Utility import ask_interactive_1arg, get_two_distinct
+from question.Types import Types
+from resources.Resource import boys, items, simple_fractions
+from utils.Utility import ask_interactive_1arg, get_two_distinct
 
 
 class Question17:
