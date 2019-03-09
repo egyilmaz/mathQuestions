@@ -1,7 +1,6 @@
 import random
-from fractions import Fraction
-from src.question.Types import Types
-from src.utils.Utility import ask_interactive_1arg
+from question.Types import Types
+from utils.Utility import ask_interactive_1arg
 
 
 # Question type percentage of
