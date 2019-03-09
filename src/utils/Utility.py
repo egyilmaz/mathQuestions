@@ -6,6 +6,12 @@ def get_two_distinct(elements):
     return sorted(srand.sample(elements, 2))
 
 
+def descending(first, second):
+    if second > first:
+        return second, first
+    else:
+        return first, second
+
 def ask_interactive_2arg(question_text):
     try:
         user_input = input(question_text)

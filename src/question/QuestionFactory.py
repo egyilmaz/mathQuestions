@@ -18,7 +18,7 @@ class QuestionFactory:
         postfix = str(self.sheet_number) + '.txt'
         with open('answers_' + postfix, 'w') as file_a, open('questions_' + postfix, 'w') as file_q:
             for i in range(0, nof_questions):
-                q = self.__get_question__(i % 17)
+                q = self.__get_question__(i % 21)
                 file_q.write(str(i+1) + ') ' + q.question())
                 file_q.write('\n\n\n\n\n')
                 file_a.write(str(i+1) + ') ' + ', '.join("{}: {}".format(k, str(v)) for k, v in q.result().items()))
@@ -26,7 +26,7 @@ class QuestionFactory:
 
     def ask_interactive(self, nof_questions):
         for i in range(0, nof_questions):
-            q = self.__get_question__(i % 17)
+            q = self.__get_question__(i % 21)
             if q.ask_user():
                 print("\nWell done.")
             else:
@@ -86,3 +86,15 @@ class QuestionFactory:
         if qtype == 16:
             from src.question.Question17 import Question17
             return Question17()
+        if qtype == 17:
+            from src.question.Question18 import Question18
+            return Question18()
+        if qtype == 18:
+            from src.question.Question19 import Question19
+            return Question19()
+        if qtype == 19:
+            from src.question.Question20 import Question20
+            return Question20()
+        if qtype == 20:
+            from src.question.Question21 import Question21
+            return Question21()
