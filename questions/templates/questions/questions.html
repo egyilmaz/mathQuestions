@@ -1,9 +1,12 @@
 {% if questions_list %}
-    <ul>
+    <ol>
     {% for question in questions_list %}
-        <li> {{ question }}<br><br><br><br><br> </li>
+        <li type='1'> {{ question }}<br><br><br><br><br> </li>
     {% endfor %}
-    </ul>
+    </ol>    
 {% else %}
     <p>No Question found.</p>
+{% endif %}
+{% if graphic %}
+<img src="data:image/png;base64,{{graphic|safe}}">
 {% endif %}
