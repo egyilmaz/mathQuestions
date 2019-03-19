@@ -1,11 +1,14 @@
 import random
 
+def get_n_distinct(elements, n):
+    srand = random.SystemRandom()
+    return sorted(srand.sample(elements, n))
+    
 
 def get_two_distinct(elements):
-    srand = random.SystemRandom()
-    return sorted(srand.sample(elements, 2))
+    return get_n_distinct(elements,2)
 
-
+#this method will return 10, 5 when 5,10 is given
 def descending(first, second):
     if second > first:
         return second, first

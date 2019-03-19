@@ -1,11 +1,12 @@
 import random
+from .BaseQuestion import BaseQuestion
 from fractions import Fraction
 from .Types import Types
 from ..utils.Utility import ask_interactive_1arg
 
 
 # Question type is simplify A/B
-class Question20:
+class Question20(BaseQuestion):
     def __init__(self):
         self.type = Types.FIRST_ORDER_1_UNKNOWN
         self.num = random.choice(range(2, 10)) * random.choice(range(1, 10))

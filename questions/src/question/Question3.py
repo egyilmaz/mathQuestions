@@ -1,11 +1,12 @@
 import random
+from .BaseQuestion import BaseQuestion
 from .Types import Types
 from ..utils.Utility import get_two_distinct, ask_interactive_2arg
 from ..resources.Resource import subjects, values, items, coeff
 
 
 # Question type is Ax = y,
-class Question3:
+class Question3(BaseQuestion):
     def __init__(self):
         self.type = Types.FIRST_ORDER_2_UNKNOWN
         self.item = random.choice(items)

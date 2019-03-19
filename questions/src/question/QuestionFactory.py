@@ -1,4 +1,23 @@
 from .Types import Output
+from ..utils.Utility import get_n_distinct
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+from io import BytesIO
+import base64
+
+def plot():
+    x=range(1,10)
+    y=x
+    plt.plot(x,y)
+    buf = BytesIO()
+    plt.savefig(buf, format='PNG', dpi=100)
+    graphic = base64.b64encode(buf.getvalue()).decode('utf-8').replace('\n','')
+    buf.close()
+    return graphic
+
+
+nof_registered_questions = 21
 
 class QuestionFactory:
 
@@ -15,9 +34,13 @@ class QuestionFactory:
             self.ask_interactive(nof_questions)
 
     def ask_question(self, nof_questions):
+        if nof_questions > nof_registered_questions:
+            nof_questions = nof_registered_questions
+        bunch = get_n_distinct(range(0,nof_registered_questions),nof_questions)
         result = []
-        for i in range(0, nof_questions):
-            result.append(self.__get_question__(i % 21).question())
+        for i in bunch:
+            question = self.__get_question__(i)
+            result.append((question.question(),question.graphic()))
         return result
 
     def ask_printed(self, nof_questions):
@@ -25,7 +48,7 @@ class QuestionFactory:
         postfix = str(self.sheet_number) + '.txt'
         with open('answers_' + postfix, 'w') as file_a, open('questions_' + postfix, 'w') as file_q:
             for i in range(0, nof_questions):
-                q = self.__get_question__(i % 21)
+                q = self.__get_question__(i % nof_registered_questions)
                 file_q.write(str(i+1) + ') ' + q.question())
                 file_q.write('\n\n\n\n\n')
                 file_a.write(str(i+1) + ') ' + ', '.join("{}: {}".format(k, str(v)) for k, v in q.result().items()))
@@ -33,7 +56,7 @@ class QuestionFactory:
 
     def ask_interactive(self, nof_questions):
         for i in range(0, nof_questions):
-            q = self.__get_question__(i % 21)
+            q = self.__get_question__(i % nof_registered_questions)
             if q.ask_user():
                 print("\nWell done.")
             else:

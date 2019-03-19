@@ -1,10 +1,11 @@
 import random
+from .BaseQuestion import BaseQuestion
 from .Types import Types
 from ..utils.Utility import ask_interactive_1arg
 
 
 # Question type percentage of
-class Question21:
+class Question21(BaseQuestion):
     def __init__(self):
         self.type = Types.FIRST_ORDER_1_UNKNOWN
         self.num = 10*random.choice(range(1, 10))

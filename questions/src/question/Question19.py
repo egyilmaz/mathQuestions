@@ -1,11 +1,12 @@
 import random
+from .BaseQuestion import BaseQuestion
 from .Types import Types
 from ..resources.Resource import args, consts, coeff, values
 from ..utils.Utility import ask_interactive_1arg, get_two_distinct, descending
 
 
 # Question type is Ax + B - Cx - D = E,
-class Question19:
+class Question19(BaseQuestion):
     def __init__(self):
         self.type = Types.FIRST_ORDER_1_UNKNOWN
         self.arg = random.choice(args)

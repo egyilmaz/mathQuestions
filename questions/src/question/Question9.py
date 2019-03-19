@@ -1,10 +1,11 @@
 import random
+from .BaseQuestion import BaseQuestion
 from .Types import Types
 from ..resources.Resource import fast_vehicles, fast_speeds, duration, subjects
 from ..utils.Utility import ask_interactive_1arg, get_two_distinct
 
 
-class Question9:
+class Question9(BaseQuestion):
     def __init__(self):
         self.type = Types.FIRST_ORDER_1_UNKNOWN
         self.passenger = random.choice(subjects)

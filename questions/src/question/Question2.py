@@ -1,11 +1,12 @@
 import random
+from .BaseQuestion import BaseQuestion
 from .Types import Types
 from ..utils.Utility import get_two_distinct, ask_interactive_2arg
 from ..resources.Resource import subjects, values, items
 
 
 # Question type is x - N = y, worded as, y has N less items then x.
-class Question2:
+class Question2(BaseQuestion):
     def __init__(self):
         self.type = Types.FIRST_ORDER_2_UNKNOWN
         self.subj1, self.subj2 = get_two_distinct(subjects)

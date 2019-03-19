@@ -1,10 +1,11 @@
 import random
+from .BaseQuestion import BaseQuestion
 from .Types import Types
 from ..resources.Resource import girls, items, simple_fractions
 from ..utils.Utility import ask_interactive_1arg, get_two_distinct
 
 
-class Question14:
+class Question14(BaseQuestion):
     def __init__(self):
         self.type = Types.FIRST_ORDER_1_UNKNOWN
         self.subject = random.choice(girls)
