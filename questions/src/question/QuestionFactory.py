@@ -1,23 +1,8 @@
 from .Types import Output
 from ..utils.Utility import get_n_distinct
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-from io import BytesIO
-import base64
-
-def plot():
-    x=range(1,10)
-    y=x
-    plt.plot(x,y)
-    buf = BytesIO()
-    plt.savefig(buf, format='PNG', dpi=100)
-    graphic = base64.b64encode(buf.getvalue()).decode('utf-8').replace('\n','')
-    buf.close()
-    return graphic
 
 
-nof_registered_questions = 21
+nof_registered_questions = 22
 
 class QuestionFactory:
 
@@ -128,3 +113,6 @@ class QuestionFactory:
         if qtype == 20:
             from .Question21 import Question21
             return Question21()
+        if qtype == 21:
+            from .Question22 import Question22
+            return Question22()

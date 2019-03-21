@@ -3,22 +3,6 @@ from .BaseQuestion import BaseQuestion
 from .Types import Types
 from ..utils.Utility import get_two_distinct, ask_interactive_2arg
 from ..resources.Resource import subjects, values, items
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-from io import BytesIO
-import base64
-
-def plot():
-    x=range(1,10)
-    y=x
-    plt.plot(x,y)
-    buf = BytesIO()
-    plt.savefig(buf, format='PNG', dpi=100)
-    graphic = base64.b64encode(buf.getvalue()).decode('utf-8').replace('\n','')
-    buf.close()
-    return graphic
-
 
 # Question type is x + N = y, worded as, y has N many more items then x.
 class Question1(BaseQuestion):
@@ -35,9 +19,6 @@ class Question1(BaseQuestion):
 
     def question(self):
         return self.body + ' ' + self.question_text
-
-    def graphic(self):
-        return plot()
 
     def ask_user(self):
         first, second = ask_interactive_2arg(self.question())
