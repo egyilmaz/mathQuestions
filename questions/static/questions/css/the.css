@@ -1,0 +1,12 @@
+element{
+    font-size: 14px;
+}
+div.qi{
+    display: inline-block;
+    vertical-align: text-top; /* NEW */
+    text-align: center; /* NEW */
+}
+
+li{
+
+}
