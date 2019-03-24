@@ -6,7 +6,7 @@
     <ol>
     {% for text,graphic in questions_list %}
         {% if graphic %}
-        	<li ><div class="qi"><img src="data:image/png;base64,{{graphic}}"></div></li>
+        	<li >{{ text }}<div class="qi"><img src="data:image/png;base64,{{graphic}}"></div></li>
         {% else %}
         <li > {{ text }}</li>
             <br><br><br><br><br>
