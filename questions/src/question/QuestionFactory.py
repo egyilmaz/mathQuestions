@@ -2,7 +2,7 @@ from .Types import Output
 from ..utils.Utility import get_n_distinct
 
 
-nof_registered_questions = 22
+nof_registered_questions = 26
 
 class QuestionFactory:
 
@@ -129,3 +129,15 @@ class QuestionFactory:
         if qtype == 21:
             from .Question22 import Question22
             return Question22()
+        if qtype == 22:
+            from .Question23 import Question23
+            return Question23()
+        if qtype == 23:
+            from .Question24 import Question24
+            return Question24()
+        if qtype == 24:
+            from .Question25 import Question25
+            return Question25()
+        if qtype == 25:
+            from .Question26 import Question26
+            return Question26()
