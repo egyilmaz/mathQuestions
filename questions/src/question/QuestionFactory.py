@@ -10,31 +10,31 @@ class QuestionFactory:
         self.sheet_number = 0
         self.output_type = otype
 
-    def ask(self, nof_questions,start_from):
+    def ask(self, nof_questions,start, end):
         if self.output_type == Output.PRINTED:
             self.ask_printed(nof_questions)
         if self.output_type == Output.ONLINE:
-            return self.ask_question(nof_questions,start_from)
+            return self.ask_question(nof_questions,start, end)
         if self.output_type == Output.INTERACTIVE:
             self.ask_interactive(nof_questions)
 
-    def ask_question(self, nof_questions, start_from):
+    def ask_question(self, nof_questions, start, end):
         nof_questions = min(nof_registered_questions, nof_questions)
-        start_from = max(1, start_from)
-        start_from = start_from - 1
+        start = max(1, start)
+        start = start - 1
 
-        nof_req = nof_registered_questions - start_from
+        nof_req = end - start
         nof_group = int(nof_questions/nof_req)
         nof_rem = nof_questions % nof_req
-        #say we have 12 registered questions, we want 34 questions starting from 5
-        #nof_req = 12 - 5 , questions from 5 to 12 are requested, 7 different question type
-        #nof_group = 34 / 7, 4 groups of 7 question type
-        #nof_rem = 34 % 7, 6 questions from 7 question type
+        #say we have 12 registered questions, we want 34 questions starting from 5, ending at 10
+        #nof_req = 10 - 5 , questions from 5 to 10 are requested, 5 different question type
+        #nof_group = 34 / 5, 6 groups of 5 question type
+        #nof_rem = 34 % 5, 4 questions from 5 question type
         bunch = []
         for i in range(0, nof_group):
-            bunch = bunch + get_n_distinct(range(start_from,nof_registered_questions),nof_req)
+            bunch = bunch + get_n_distinct(range(start,end),nof_req)
 
-        bunch = bunch + get_n_distinct(range(start_from,nof_registered_questions),nof_rem)
+        bunch = bunch + get_n_distinct(range(start,end),nof_rem)
         result = []
         for i in bunch:
             question = self.__get_question__(i)
