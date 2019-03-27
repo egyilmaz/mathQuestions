@@ -1,1 +1,1 @@
-web: gunicorn reviewquestions.wsgi --log-file -
+web: gunicorn mathQuestions.wsgi --log-file -
