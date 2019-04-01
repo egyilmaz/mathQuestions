@@ -1,0 +1,24 @@
+<head>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'questions/css/the.css' %}">
+</head>
+{% if questions_list %}
+    <ol>
+    {% for text,graphic in questions_list %}
+        {% if graphic %}
+        	<li >{{ text }}<div class="qi"><img src="data:image/png;base64,{{graphic}}"></div></li>
+        {% else %}
+        <li > {{ text }}</li>
+        {% endif %}
+        <br>
+        <form method="POST" action="/questions/evaluate/">
+            {% csrf_token %} 
+            <input type="text" name="answer" placeholder="Type in your answer here">
+            <button type="submit">Check</button>
+        </form>
+        <br>
+    {% endfor %}
+    </ol>    
+{% else %}
+    <p>No Question found.</p>
+{% endif %}

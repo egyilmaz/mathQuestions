@@ -17,3 +17,7 @@ def index_start_end(request, nof_questions, start, end):
     context = {"questions_list":result}
     return HttpResponse(template.render(context,request))
 
+def evaluate(request):
+   if request.method == 'POST':
+        answer = request.POST.get('answer', None)
+        return HttpResponse("evaluate called with "+answer)

@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-plt.rcParams["figure.figsize"] = (10,1)
+plt.rcParams["figure.figsize"] = (0.01,0.01)
 from io import BytesIO
 import base64
 
