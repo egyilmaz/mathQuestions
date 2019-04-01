@@ -4,7 +4,7 @@
 </head>
 {% if questions_list %}
     <ol>
-    {% for text,graphic in questions_list %}
+    {% for text,graphic,meta,answer in questions_list %}
         {% if graphic %}
         	<li >{{ text }}<div class="qi"><img src="data:image/png;base64,{{graphic}}"></div></li>
         {% else %}
@@ -13,7 +13,9 @@
         <br>
         <form method="POST" action="/questions/evaluate/">
             {% csrf_token %} 
-            <input type="text" name="answer" placeholder="Type in your answer here">
+            <input type="text" name="user_input" placeholder="Type in your answer here">
+            <input type="hidden" name="correct_answer" value={{answer}} />
+            <input type="hidden" name="meta" value={{meta}} />
             <button type="submit">Check</button>
         </form>
         <br>

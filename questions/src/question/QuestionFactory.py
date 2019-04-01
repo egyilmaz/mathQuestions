@@ -37,8 +37,7 @@ class QuestionFactory:
         bunch = bunch + get_n_distinct(range(start,end),nof_rem)
         result = []
         for i in bunch:
-            question = self.__get_question__(i)
-            result.append((question.question(),question.graphic()))
+            result.append(self.__get_question__(i))
         return result
 
     def ask_printed(self, nof_questions):

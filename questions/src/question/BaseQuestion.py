@@ -5,6 +5,9 @@ import base64
 
 class BaseQuestion:
 
+    def meta(self):
+        return None
+
     def graphic(self):
         return None
 

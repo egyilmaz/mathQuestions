@@ -6,4 +6,5 @@ urlpatterns = [
     path('<int:nof_questions>/',views.index,name='index'), 
     path('<int:nof_questions>/<int:start_from>',views.index_start_from,name='index_start_from'), 
     path('<int:nof_questions>/<int:start>/<int:end>',views.index_start_end,name='index_start_end'), 
+    path('qa/<int:nof_questions>',views.questions_answers,name='questions_answers'), 
 ]
