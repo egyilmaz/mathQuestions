@@ -11,7 +11,7 @@ class Question22(BaseQuestion):
         self.subject = random.choice(boys)
         self.ratio1, self.ratio2 = get_two_distinct(simple_fractions)
         self.int1, self.int2 = get_two_distinct(range(1,7))
-        self.res = self.ratio1 + self.ratio2
+        self.res = str(self.int1+self.int2)+"+"+str(self.ratio1 + self.ratio2)
 
     def question(self):
         return "Calculate   "
@@ -27,4 +27,4 @@ class Question22(BaseQuestion):
         return {self.subject: self.res}
 
     def answer(self):
-        return "{res}".format(res=self.res)
+        return "Result is {res}".format(res=self.res)
