@@ -3,7 +3,6 @@ from django.template import loader
 from .src.question.QuestionFactory import QuestionFactory, nof_registered_questions
 from .src.question.Types import Output
 
-
 def index(request, nof_questions):
     return index_start_end(request, nof_questions, 1, nof_registered_questions)
 
@@ -38,5 +37,5 @@ def evaluate(request):
         user_input = request.POST.get('user_input', None)
         correct_answer = request.POST.get('correct_answer', None)
         meta = request.POST.get('meta', None)
-        return HttpResponse("evaluate user_input "+user_input+" correct answer "+correct_answer+" meta "+meta)
+        return HttpResponse("Input "+user_input+"<br><br>Correct answer "+correct_answer+"<br><br>Meta "+meta)
 

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <head>
   {% load static %}
   <link rel="stylesheet" href="{% static 'questions/css/the.css' %}">
@@ -14,8 +15,8 @@
         <form method="POST" action="/questions/evaluate/">
             {% csrf_token %} 
             <input type="text" name="user_input" placeholder="Type in your answer here">
-            <input type="hidden" name="correct_answer" value={{answer}} />
-            <input type="hidden" name="meta" value={{meta}} />
+            <input type="hidden" name="correct_answer" value="{{answer}}" />
+            <input type="hidden" name="meta" value="{{meta}}" />
             <button type="submit">Check</button>
         </form>
         <br>
