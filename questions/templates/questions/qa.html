@@ -2,6 +2,7 @@
 <head>
   {% load static %}
   <link rel="stylesheet" href="{% static 'questions/css/the.css' %}">
+  <script src="{% static 'questions/js/eval_and_submit.js'%}"></script>
 </head>
 {% if questions_list %}
     <ol>
@@ -12,13 +13,14 @@
         <li > {{ text }}</li>
         {% endif %}
         <br>
-        <form method="POST" action="/questions/evaluate/">
+        <div >
             {% csrf_token %} 
-            <input type="text" name="user_input" placeholder="Type in your answer here">
-            <input type="hidden" name="correct_answer" value="{{answer}}" />
-            <input type="hidden" name="meta" value="{{meta}}" />
-            <button type="submit">Check</button>
-        </form>
+            <input type="text" id="user_input" placeholder="Type in your answer here">
+            <input type="hidden" id="correct_answer" value="{{answer}}" />
+            <input type="hidden" id="meta" value="{{meta}}" />
+            <button onclick="EvalAndSubmit('{{answer}}','{{meta}}')">Check</button>
+            <div id="check_result"></div>
+        </div>
         <br>
     {% endfor %}
     </ol>    
