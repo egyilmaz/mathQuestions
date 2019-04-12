@@ -26,16 +26,18 @@ def index_start_end(request, nof_questions, start, end):
 def questions_answers(request, nof_questions):
     questions = get_question_list(nof_questions, 1, nof_registered_questions)
     result=[]
+    qid=0
     for q in questions:
-        result.append((q.question(),q.graphic(),q.meta(),q.answer()))
+        result.append((qid,q.question(),q.graphic(),q.meta(),q.answer()))
+        qid = qid + 1
     template = loader.get_template("questions/qa.html")
     context = {"questions_list":result}
     return HttpResponse(template.render(context,request))
 
-def evaluate(request):
-   if request.method == 'POST':
-        user_input = request.POST.get('user_input', None)
-        correct_answer = request.POST.get('correct_answer', None)
-        meta = request.POST.get('meta', None)
-        return HttpResponse("Input "+user_input+"<br><br>Correct answer "+correct_answer+"<br><br>Meta "+meta)
+#def evaluate(request):
+#   if request.method == 'POST':
+#        user_input = request.POST.get('user_input', None)
+#        correct_answer = request.POST.get('correct_answer', None)
+#        meta = request.POST.get('meta', None)
+#        return HttpResponse("Input "+user_input+"<br><br>Correct answer "+correct_answer+"<br><br>Meta "+meta)
 

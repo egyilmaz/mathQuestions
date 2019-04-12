@@ -6,7 +6,7 @@
 </head>
 {% if questions_list %}
     <ol>
-    {% for text,graphic,meta,answer in questions_list %}
+    {% for qid,text,graphic,meta,answer in questions_list %}
         {% if graphic %}
         	<li >{{ text }}<div class="qi"><img src="data:image/png;base64,{{graphic}}"></div></li>
         {% else %}
@@ -18,8 +18,8 @@
             <input type="text" id="user_input" placeholder="Type in your answer here">
             <input type="hidden" id="correct_answer" value="{{answer}}" />
             <input type="hidden" id="meta" value="{{meta}}" />
-            <button onclick="EvalAndSubmit('{{answer}}','{{meta}}')">Check</button>
-            <div id="check_result"></div>
+    	    <div id="check_result_{{qid}}"></div>
+	        <button onclick="EvalAndSubmit('{{qid}}','{{answer}}','{{meta}}')">Check</button>
         </div>
         <br>
     {% endfor %}
