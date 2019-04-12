@@ -31,6 +31,4 @@ class Question1(BaseQuestion):
         return "{subj1} has {subj1_qty} where {subj2} has {subj2_qty} {item}, hence your answer should have " \
                "been {subj1_qty},{subj2_qty}".format(subj1=self.subj1, subj1_qty=self.subj1_qty, subj2=self.subj2
                                                      , subj2_qty=self.subj2_qty, item=self.item)
-    def meta(self):
-        return "Question1 "+str(self.type)
 

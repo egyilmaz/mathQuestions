@@ -6,7 +6,10 @@ import base64
 class BaseQuestion:
 
     def meta(self):
-        return None
+        type_str=str(type(self))
+        #"<class 'questions.src.question.Question1.Question1'>"  
+        # becomes "Meta: question.Question1.Question1"
+        return 'Meta: '+'.'.join(type_str[1:-2].split('.')[-3:])
 
     def graphic(self):
         return None

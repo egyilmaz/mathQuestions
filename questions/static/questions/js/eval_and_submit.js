@@ -1,4 +1,5 @@
 function EvalAndSubmit(qid, answer, meta){
     var input = document.getElementById("user_input").value;
-    document.getElementById("check_result_"+qid).innerHTML = answer
+    var out = answer +"<br>"+ meta+"<br>";
+    document.getElementById("check_result_"+qid).innerHTML = out
 }
