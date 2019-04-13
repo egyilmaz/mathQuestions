@@ -1,8 +1,7 @@
 from .Types import Output
-from ..utils.Utility import get_n_distinct
+from .utils.Utility import get_n_distinct
 
-
-nof_registered_questions = 30
+nof_registered_questions = 35
 
 class QuestionFactory:
 
@@ -11,12 +10,8 @@ class QuestionFactory:
         self.output_type = otype
 
     def ask(self, nof_questions,start, end):
-        if self.output_type == Output.PRINTED:
-            self.ask_printed(nof_questions)
         if self.output_type == Output.ONLINE:
             return self.ask_question(nof_questions,start, end)
-        if self.output_type == Output.INTERACTIVE:
-            self.ask_interactive(nof_questions)
 
     def ask_question(self, nof_questions, start, end):
         nof_questions = min(nof_registered_questions, nof_questions)
@@ -40,25 +35,16 @@ class QuestionFactory:
             result.append(self.__get_question__(i))
         return result
 
-    def ask_printed(self, nof_questions):
-        self.sheet_number = self.sheet_number + 1
-        postfix = str(self.sheet_number) + '.txt'
-        with open('answers_' + postfix, 'w') as file_a, open('questions_' + postfix, 'w') as file_q:
-            for i in range(0, nof_questions):
-                q = self.__get_question__(i % nof_registered_questions)
-                file_q.write(str(i+1) + ') ' + q.question())
-                file_q.write('\n\n\n\n\n')
-                file_a.write(str(i+1) + ') ' + ', '.join("{}: {}".format(k, str(v)) for k, v in q.result().items()))
-                file_a.write('\n')
-
-    def ask_interactive(self, nof_questions):
-        for i in range(0, nof_questions):
-            q = self.__get_question__(i % nof_registered_questions)
-            if q.ask_user():
-                print("\nWell done.")
-            else:
-                print("\nCheck my answer : " + q.answer())
-            print('\n')
+#    def ask_printed(self, nof_questions):
+#        self.sheet_number = self.sheet_number + 1
+#        postfix = str(self.sheet_number) + '.txt'
+#        with open('answers_' + postfix, 'w') as file_a, open('questions_' + postfix, 'w') as file_q:
+#            for i in range(0, nof_questions):
+#                q = self.__get_question__(i % nof_registered_questions)
+#                file_q.write(str(i+1) + ') ' + q.question())
+#                file_q.write('\n\n\n\n\n')
+#                file_a.write(str(i+1) + ') ' + ', '.join("{}: {}".format(k, str(v)) for k, v in q.result().items()))
+#                file_a.write('\n')
 
     @staticmethod
     def __get_question__(qtype):
@@ -152,3 +138,18 @@ class QuestionFactory:
         if qtype == 29:
             from .Question30 import Question30
             return Question30()
+        if qtype == 30:
+            from .Question31 import Question31
+            return Question31()
+        if qtype == 31:
+            from .Question32 import Question32
+            return Question32()
+        if qtype == 32:
+            from .Question33 import Question33
+            return Question33()
+        if qtype == 33:
+            from .Question34 import Question34
+            return Question34()
+        if qtype == 34:
+            from .Question35 import Question35
+            return Question35()

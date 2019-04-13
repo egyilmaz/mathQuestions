@@ -23,4 +23,3 @@ class BaseQuestion:
         plt.clf()
         buf.close()
         return graphic
-

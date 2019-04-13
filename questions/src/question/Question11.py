@@ -1,13 +1,10 @@
 import random
 from .BaseQuestion import BaseQuestion
-from .Types import Types
-from ..resources.Resource import boys, items, pound, simple_fractions
-from ..utils.Utility import ask_interactive_1arg
+from .resources.Resource import boys, items, simple_fractions
 
 
 class Question11(BaseQuestion):
     def __init__(self):
-        self.type = Types.FIRST_ORDER_1_UNKNOWN
         self.subject = random.choice(boys)
         self.item = random.choice(items)
         self.ratio = random.choice(simple_fractions)
@@ -19,12 +16,6 @@ class Question11(BaseQuestion):
 
     def question(self):
         return self.body
-
-    def ask_user(self):
-        return self.remaining == ask_interactive_1arg(self.question())
-
-    def result(self):
-        return {self.subject: self.remaining}
 
     def answer(self):
         return "{subj} has {rem} pounds left".format(subj=self.subject, rem=self.remaining)

@@ -1,13 +1,10 @@
 import random
 from .BaseQuestion import BaseQuestion
-from .Types import Types
-from ..resources.Resource import girls, items, pound, pence, simple_fractions
-from ..utils.Utility import ask_interactive_1arg
+from .resources.Resource import girls, items, simple_fractions
 
 
 class Question10(BaseQuestion):
     def __init__(self):
-        self.type = Types.FIRST_ORDER_1_UNKNOWN
         self.subject = random.choice(girls)
         self.item = random.choice(items)
         self.ratio = random.choice(simple_fractions)
@@ -19,12 +16,6 @@ class Question10(BaseQuestion):
 
     def question(self):
         return self.body
-
-    def ask_user(self):
-        return self.spent == ask_interactive_1arg(self.question())
-
-    def result(self):
-        return {self.subject: self.spent}
 
     def answer(self):
         return "{subj} spent {spent} pounds".format(subj=self.subject, spent=self.spent)

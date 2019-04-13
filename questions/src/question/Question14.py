@@ -1,13 +1,11 @@
 import random
 from .BaseQuestion import BaseQuestion
-from .Types import Types
-from ..resources.Resource import girls, items, simple_fractions
-from ..utils.Utility import ask_interactive_1arg, get_two_distinct
+from .resources.Resource import girls, items, simple_fractions
+from .utils.Utility import get_two_distinct
 
 
 class Question14(BaseQuestion):
     def __init__(self):
-        self.type = Types.FIRST_ORDER_1_UNKNOWN
         self.subject = random.choice(girls)
         self.item1, self.item2 = get_two_distinct(items)
         self.ratio1, self.ratio2 = get_two_distinct(simple_fractions)
@@ -21,12 +19,6 @@ class Question14(BaseQuestion):
 
     def question(self):
         return self.body
-
-    def ask_user(self):
-        return self.got == ask_interactive_1arg(self.question())
-
-    def result(self):
-        return {self.subject: self.got}
 
     def answer(self):
         return "{subj} had {got}".format(subj=self.subject, got=self.got)

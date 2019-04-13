@@ -1,14 +1,12 @@
 import random
 from .BaseQuestion import BaseQuestion
-from .Types import Types
-from ..utils.Utility import get_two_distinct, ask_interactive_2arg
-from ..resources.Resource import subjects, values, items, coeff
+from .utils.Utility import get_two_distinct
+from .resources.Resource import subjects, values, items, coeff
 
 
 # Question type is Ax = y,
 class Question3(BaseQuestion):
     def __init__(self):
-        self.type = Types.FIRST_ORDER_2_UNKNOWN
         self.item = random.choice(items)
         self.subj1, self.subj2 = get_two_distinct(subjects)
         self.subj2_qty = random.choice(values)
@@ -21,13 +19,6 @@ class Question3(BaseQuestion):
 
     def question(self):
         return self.body + ' ' + self.question_text
-
-    def ask_user(self):
-        first, second = ask_interactive_2arg(self.question())
-        return first == self.subj1_qty and second == self.subj2_qty
-
-    def result(self):
-        return {self.subj1: self.subj1_qty, self.subj2: self.subj2_qty}
 
     def answer(self):
         return "{subj1} has {subj1_qty} where {subj2} has {subj2_qty} {item}, hence your answer should have "\

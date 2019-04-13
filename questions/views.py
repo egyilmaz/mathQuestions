@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.template import loader
-from .src.question.QuestionFactory import QuestionFactory, nof_registered_questions
-from .src.question.Types import Output
+from questions.src.question.QuestionFactory import QuestionFactory, nof_registered_questions
+from questions.src.question.Types import Output
 
 def index(request, nof_questions):
     return index_start_end(request, nof_questions, 1, nof_registered_questions)

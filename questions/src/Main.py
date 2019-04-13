@@ -1,4 +1,4 @@
-from question.QuestionFactory import QuestionFactory
+from QuestionFactory import QuestionFactory
 from question.Types import Output
 
 if __name__ == '__main__':

@@ -1,13 +1,11 @@
 import random
 from .BaseQuestion import BaseQuestion
-from .Types import Types
-from ..resources.Resource import fast_vehicles, fast_speeds, duration, subjects
-from ..utils.Utility import ask_interactive_1arg, get_two_distinct
+from .resources.Resource import fast_vehicles, fast_speeds, duration, subjects
+from .utils.Utility import get_two_distinct
 
 
 class Question9(BaseQuestion):
     def __init__(self):
-        self.type = Types.FIRST_ORDER_1_UNKNOWN
         self.passenger = random.choice(subjects)
         self.vehicle1, self.vehicle2 = get_two_distinct(fast_vehicles)
         self.speed1, self.speed2 = get_two_distinct(fast_speeds)
@@ -20,12 +18,6 @@ class Question9(BaseQuestion):
 
     def question(self):
         return self.body
-
-    def ask_user(self):
-        return self.distance == ask_interactive_1arg(self.question())
-
-    def result(self):
-        return {self.passenger: self.distance}
 
     def answer(self):
         return "Total journey is {dist} miles".format(dist=self.distance)
