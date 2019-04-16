@@ -8,7 +8,7 @@ from .Types import Types, Complexity
 # Question type is Ax + B - Cx - D = E,
 class Question19(BaseQuestion):
     def __init__(self):
-        self.type = Types.First_order_one_unknown
+        self.type = Types.Equation_First_order_one_unknown
         self.complexity = Complexity.Advanced
         self.arg = random.choice(args)
         self.const1, self.const2 = descending(*get_two_distinct(consts))

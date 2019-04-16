@@ -1,25 +1,53 @@
-from .Types import Output
 from .utils.Utility import get_n_distinct
-#import logging
-#logger = logging.getLogger(__name__)
+from .Types import Types, Complexity
+import logging
+logger = logging.getLogger(__name__)
 
 nof_registered_questions = 36
 
 class QuestionFactory:
 
-    def __init__(self, otype):
-        self.sheet_number = 0
-        self.output_type = otype
+    def load_all_questions(self):
+        result=[]
+        for i in range(0,nof_registered_questions):
+            result.append(self.__get_question__(i))
+        return result
 
-    def ask(self, nof_questions,start, end):
-        if self.output_type == Output.ONLINE:
-            return self.ask_question(nof_questions,start, end)
+
+    def statistics(self):
+        nof_q = "There are {0} different questions<br>".format(nof_registered_questions)
+        all_questions = self.load_all_questions()
+        types_dict={}
+        complexities_dict={}
+        for q in all_questions:
+            types_dict[q.type] = types_dict.get(q.type,0) + 1
+            complexities_dict[q.complexity] = complexities_dict.get(q.complexity,0)+1
+            logger.error("ahanda comp "+str(q.complexity))
+
+        types_str=""
+        for typ in Types:
+            types_str += "{0}:{1}<br>".format(str(typ),types_dict.get(typ,0))
+
+        complexities_str=""
+        for cp in Complexity:
+            complexities_str += "{0}:{1}<br>".format(str(cp),complexities_dict.get(cp,0))
+
+        return nof_q + types_str + complexities_str
+
+    def ask_filtered(self, nof_questions, qtype, complexity):
+        candidates=[]
+        for i in range(0,nof_registered_questions):
+            q = self.__get_question__(i)
+            if q.type == Types[qtype] and q.complexity == Complexity[complexity]:
+                candidates.append(i) # indexes matching criteria is stored in array
+        return self.get_bunch(nof_questions, candidates)
 
     def ask_question(self, nof_questions, start, end):
-        start = max(1, start)
-        start = start - 1
+        start = max(0, start - 1) # question index starts from zero, requests start from 1
+        return self.get_bunch(nof_questions, range(start,end))
 
-        nof_req = end - start
+    def get_bunch(self,nof_questions, rng):
+        nof_req = len(rng)
         nof_group = int(nof_questions/nof_req)
         nof_rem = nof_questions % nof_req
         #logger.error('noq{3}, req{0} grp{1}, rem{2}'.format(nof_req, nof_group, nof_rem, nof_questions))
@@ -29,14 +57,11 @@ class QuestionFactory:
         #nof_rem = 34 % 5, 4 questions from 5 question type
         bunch = []
         for i in range(0, nof_group):
-            bunch = bunch + get_n_distinct(range(start,end),nof_req)
-
-        bunch = bunch + get_n_distinct(range(start,end),nof_rem)
+            bunch = bunch + get_n_distinct(rng,nof_req)
+        bunch = bunch + get_n_distinct(rng,nof_rem)
         result = []
         for i in bunch:
             result.append(self.__get_question__(i))
-
-
         return result
 
 #    def ask_printed(self, nof_questions):

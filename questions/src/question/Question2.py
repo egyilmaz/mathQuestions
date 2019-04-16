@@ -8,7 +8,7 @@ from .Types import Types, Complexity
 # Question type is x - N = y, worded as, y has N less items then x.
 class Question2(BaseQuestion):
     def __init__(self):
-        self.type = Types.First_order_one_unknown
+        self.type = Types.Equation_First_order_one_unknown
         self.complexity = Complexity.Basic
         self.subj1, self.subj2 = get_two_distinct(subjects)
         self.subj1_qty, self.subj2_qty = get_two_distinct(values)

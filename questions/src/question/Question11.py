@@ -6,7 +6,7 @@ from .Types import Types, Complexity
 
 class Question11(BaseQuestion):
     def __init__(self):
-        self.type = Types.Fraction_Got_Spent_Left
+        self.type = Types.Money_Got_Spent_Left
         self.complexity = Complexity.Basic
         self.subject = random.choice(boys)
         self.item = random.choice(items)

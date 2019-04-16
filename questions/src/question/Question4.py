@@ -7,7 +7,7 @@ from .Types import Types, Complexity
 # Question type is Ax = B,
 class Question4(BaseQuestion):
     def __init__(self):
-        self.type = Types.First_order_one_unknown
+        self.type = Types.Equation_First_order_one_unknown
         self.complexity = Complexity.Basic
         self.arg = random.choice(args)
         self.coeff = random.choice(coeff)

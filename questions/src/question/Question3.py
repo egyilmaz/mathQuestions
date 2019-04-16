@@ -8,7 +8,7 @@ from .Types import Types, Complexity
 # Question type is Ax = y,
 class Question3(BaseQuestion):
     def __init__(self):
-        self.type = Types.First_order_one_unknown
+        self.type = Types.Equation_First_order_one_unknown
         self.complexity = Complexity.Moderate
         self.item = random.choice(items)
         self.subj1, self.subj2 = get_two_distinct(subjects)

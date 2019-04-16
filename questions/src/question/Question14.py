@@ -7,7 +7,7 @@ from .Types import Types,Complexity
 
 class Question14(BaseQuestion):
     def __init__(self):
-        self.type = Types.Fraction_Got_Spent_Left
+        self.type = Types.Money_Got_Spent_Left
         self.complexity = Complexity.Moderate
         self.subject = random.choice(girls)
         self.item1, self.item2 = get_two_distinct(items)
