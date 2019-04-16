@@ -1,12 +1,14 @@
 from .BaseQuestion import BaseQuestion
 from .utils.Utility import get_n_distinct
-
+from .Types import Types, Complexity
 
 def sq(num):
     return num*num
 
 class Question23(BaseQuestion):
     def __init__(self):
+        self.type = Types.Power
+        self.complexity = Complexity.Basic
         self.first, self.second, self.third, self.fourth = get_n_distinct(range(0,21),4)
         self.res = [sq(self.first),sq(self.second),sq(self.third),sq(self.fourth)]
 

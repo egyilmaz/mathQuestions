@@ -1,9 +1,12 @@
 from .BaseQuestion import BaseQuestion
 from .resources.Resource import random_fractions
 from .utils.Utility import get_two_distinct, descending
+from .Types import Types, Complexity
 
 class Question25(BaseQuestion):
     def __init__(self):
+        self.type = Types.Fraction_sub
+        self.complexity = Complexity.Basic
         self.first, self.second = descending( *get_two_distinct( random_fractions ) )
         self.res = self.first - self.second
         self.body = "Calculate   "

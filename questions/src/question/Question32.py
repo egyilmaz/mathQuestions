@@ -2,9 +2,13 @@ import random
 from .BaseQuestion import BaseQuestion
 from .resources.Resource import places, subjects
 from datetime import timedelta,datetime
+from .Types import Types, Complexity
+
 
 class Question32(BaseQuestion):
     def __init__(self):
+        self.type = Types.Time_sub
+        self.complexity = Complexity.Basic
         self.place = random.choice(places)
         self.subj1 = random.choice(subjects)
         self.start = datetime.now()

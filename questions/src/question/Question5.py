@@ -1,11 +1,14 @@
 import random
 from .BaseQuestion import BaseQuestion
 from .resources.Resource import args, consts, coeff, values
+from .Types import Types, Complexity
 
 
 # Question type is Ax + B = C,
 class Question5(BaseQuestion):
     def __init__(self):
+        self.type = Types.First_order_one_unknown
+        self.complexity = Complexity.Moderate
         self.arg = random.choice(args)
         self.const = random.choice(consts)
         self.coeff = random.choice(coeff)

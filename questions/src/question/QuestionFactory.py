@@ -1,7 +1,9 @@
 from .Types import Output
 from .utils.Utility import get_n_distinct
+#import logging
+#logger = logging.getLogger(__name__)
 
-nof_registered_questions = 35
+nof_registered_questions = 36
 
 class QuestionFactory:
 
@@ -14,13 +16,13 @@ class QuestionFactory:
             return self.ask_question(nof_questions,start, end)
 
     def ask_question(self, nof_questions, start, end):
-        nof_questions = min(nof_registered_questions, nof_questions)
         start = max(1, start)
         start = start - 1
 
         nof_req = end - start
         nof_group = int(nof_questions/nof_req)
         nof_rem = nof_questions % nof_req
+        #logger.error('noq{3}, req{0} grp{1}, rem{2}'.format(nof_req, nof_group, nof_rem, nof_questions))
         #say we have 12 registered questions, we want 34 questions starting from 5, ending at 10
         #nof_req = 10 - 5 , questions from 5 to 10 are requested, 5 different question type
         #nof_group = 34 / 5, 6 groups of 5 question type
@@ -33,6 +35,8 @@ class QuestionFactory:
         result = []
         for i in bunch:
             result.append(self.__get_question__(i))
+
+
         return result
 
 #    def ask_printed(self, nof_questions):
@@ -153,3 +157,6 @@ class QuestionFactory:
         if qtype == 34:
             from .Question35 import Question35
             return Question35()
+        if qtype == 35:
+            from .Question36 import Question36
+            return Question36()

@@ -3,6 +3,8 @@ from django.template import loader
 from questions.src.question.QuestionFactory import QuestionFactory, nof_registered_questions
 from questions.src.question.Types import Output
 
+MAX_ALLOWED_QUESTIONS = 100
+
 def index(request, nof_questions):
     return index_start_end(request, nof_questions, 1, nof_registered_questions)
 
@@ -10,6 +12,7 @@ def index_start_from(request, nof_questions, start_from):
     return index_start_end(request, nof_questions, start_from, nof_registered_questions)
 
 def get_question_list(nof_questions, start, end):
+    nof_questions = min(nof_questions, MAX_ALLOWED_QUESTIONS) # here is our bottleneck.
     qf = QuestionFactory(Output.ONLINE)
     return qf.ask(nof_questions, start, end) #return list of questions
     

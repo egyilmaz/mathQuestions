@@ -2,10 +2,13 @@ import random
 from .BaseQuestion import BaseQuestion
 from .resources.Resource import fast_vehicles, fast_speeds, duration, subjects
 from .utils.Utility import get_two_distinct
+from .Types import Types, Complexity
 
 
 class Question9(BaseQuestion):
     def __init__(self):
+        self.type = Types.Vehicle_speed_time_distance
+        self.complexity = Complexity.Moderate
         self.passenger = random.choice(subjects)
         self.vehicle1, self.vehicle2 = get_two_distinct(fast_vehicles)
         self.speed1, self.speed2 = get_two_distinct(fast_speeds)

@@ -1,10 +1,13 @@
 import random
 from .BaseQuestion import BaseQuestion
 from .resources.Resource import slow_vehicles, slow_speeds, duration
+from .Types import Types, Complexity
 
 
 class Question8(BaseQuestion):
     def __init__(self):
+        self.type = Types.Vehicle_speed_time_distance
+        self.complexity = Complexity.Moderate
         self.vehicle = random.choice(slow_vehicles)
         self.speed = random.choice(slow_speeds)
         self.duration = random.choice(duration)

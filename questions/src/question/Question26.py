@@ -1,10 +1,13 @@
 from .BaseQuestion import BaseQuestion
 from .resources.Resource import random_fractions
 from .utils.Utility import get_two_distinct
+from .Types import Types, Complexity
 
 
 class Question26(BaseQuestion):
     def __init__(self):
+        self.type = Types.Fraction_mul
+        self.complexity = Complexity.Basic
         self.first, self.second = get_two_distinct( random_fractions )
         self.res = self.first * self.second 
         self.body = "Calculate   "

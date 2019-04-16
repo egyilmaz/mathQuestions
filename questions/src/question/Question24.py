@@ -1,11 +1,14 @@
 from .BaseQuestion import BaseQuestion
 from .utils.Utility import get_n_distinct
+from .Types import Types, Complexity
 
 def cube(num):
     return num*num*num
 
 class Question24(BaseQuestion):
     def __init__(self):
+        self.type = Types.Power
+        self.complexity = Complexity.Moderate
         self.first, self.second, self.third, self.fourth = get_n_distinct(range(0,11),4)
         self.res = [cube(self.first),cube(self.second),cube(self.third),cube(self.fourth)]
 

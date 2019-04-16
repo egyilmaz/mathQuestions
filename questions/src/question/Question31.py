@@ -3,9 +3,13 @@ from .BaseQuestion import BaseQuestion
 from .resources.Resource import places, subjects
 from .utils.Utility import get_n_distinct
 from datetime import timedelta,datetime
+from .Types import Types, Complexity
+
 
 class Question31(BaseQuestion):
     def __init__(self):
+        self.type = Types.Time_add
+        self.complexity = Complexity.Moderate
         self.place = random.choice(places)
         self.subj1, self.subj2 = get_n_distinct(subjects,2)
         self.start = datetime.now()

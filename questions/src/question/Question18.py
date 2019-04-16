@@ -2,11 +2,14 @@ import random
 from .BaseQuestion import BaseQuestion
 from .resources.Resource import args, consts, coeff, values
 from .utils.Utility import get_two_distinct
+from .Types import Types, Complexity
 
 
 # Question type is Ax + B + Cx + D = E,
 class Question18(BaseQuestion):
     def __init__(self):
+        self.type = Types.First_order_one_unknown
+        self.complexity = Complexity.Moderate
         self.arg = random.choice(args)
         self.const1, self.const2 = get_two_distinct(consts)
         self.coeff1, self.coeff2 = get_two_distinct(coeff)

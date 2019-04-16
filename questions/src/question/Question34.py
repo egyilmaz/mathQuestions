@@ -1,10 +1,13 @@
 from .BaseQuestion import BaseQuestion
 from .resources.Resource import items,girls
 import random
+from .Types import Types, Complexity
 
 
 class Question34(BaseQuestion):
     def __init__(self):
+        self.type = Types.Percentage
+        self.complexity = Complexity.Advanced
         self.subj = random.choice(girls)
         self.profit = random.choice([10,20,25,50])
         self.bought = random.choice([20,40,60,80])

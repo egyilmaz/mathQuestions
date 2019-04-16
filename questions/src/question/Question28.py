@@ -1,10 +1,12 @@
 from .BaseQuestion import BaseQuestion
 from fractions import Fraction
 from .utils.Utility import get_two_distinct
-
+from .Types import Types, Complexity
 
 class Question28(BaseQuestion):
     def __init__(self):
+        self.type = Types.Percentage
+        self.complexity = Complexity.Moderate
         self.first, self.second = get_two_distinct([2,5,10,20,25,30,40,50,60,75,90,100])
         res1 = Fraction(self.first,100)
         res2 = Fraction(self.second,100)

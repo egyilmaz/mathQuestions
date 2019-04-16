@@ -2,11 +2,14 @@ import random
 from .BaseQuestion import BaseQuestion
 from .utils.Utility import get_two_distinct
 from .resources.Resource import subjects, values, items, coeff
+from .Types import Types, Complexity
 
 
 # Question type is Ax = y,
 class Question3(BaseQuestion):
     def __init__(self):
+        self.type = Types.First_order_one_unknown
+        self.complexity = Complexity.Moderate
         self.item = random.choice(items)
         self.subj1, self.subj2 = get_two_distinct(subjects)
         self.subj2_qty = random.choice(values)

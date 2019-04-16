@@ -1,9 +1,12 @@
 import random
 from .BaseQuestion import BaseQuestion
+from .Types import Types, Complexity
 
 
 class Question21(BaseQuestion):
     def __init__(self):
+        self.type = Types.Percentage
+        self.complexity = Complexity.Basic
         self.num = 10*random.choice(range(1, 10))
         self.per = 10*random.choice(range(1, 10))
         self.res = self.num*self.per/100
