@@ -48,6 +48,8 @@ class QuestionFactory:
 
     def get_bunch(self,nof_questions, rng):
         nof_req = len(rng)
+        if nof_req == 0:
+            return []
         nof_group = int(nof_questions/nof_req)
         nof_rem = nof_questions % nof_req
         #logger.error('noq{3}, req{0} grp{1}, rem{2}'.format(nof_req, nof_group, nof_rem, nof_questions))
