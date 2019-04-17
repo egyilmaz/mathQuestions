@@ -1,4 +1,3 @@
-from .Types import Complexity
 from .BaseFilter import BaseFilter
 
 
@@ -7,4 +6,4 @@ class ComplexityFilter(BaseFilter):
         self.complexity = complexity
 
     def filter(self, q):
-        return q.complexity == Complexity[self.complexity]
+        return self.complexity.lower() in str(q.complexity).lower()
