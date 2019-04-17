@@ -6,7 +6,7 @@ from .Types import Types, Complexity
 
 class Question29(BaseQuestion):
     def __init__(self):
-        self.type = Types.Fraction_decimal
+        self.type = Types.Percentage
         self.complexity = Complexity.Basic
         self.first, self.second = get_two_distinct([2,5,10,20,25,30,40,50,60,75,90,100])
         self.res = [float(Fraction(self.first,100)),float(Fraction(self.second,100))] 
