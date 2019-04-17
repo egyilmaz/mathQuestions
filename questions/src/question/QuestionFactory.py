@@ -1,5 +1,6 @@
 from .utils.Utility import get_n_distinct
 from .Types import Types, Complexity
+from .FilterFactory import FilterFactory
 import logging
 logger = logging.getLogger(__name__)
 
@@ -14,31 +15,39 @@ class QuestionFactory:
         return result
 
 
-    def statistics(self):
+    def statistics(self, types_enabled, complexity_enabled):
         nof_q = "There are {0} different questions<br>".format(nof_registered_questions)
         all_questions = self.load_all_questions()
         types_dict={}
         complexities_dict={}
         for q in all_questions:
-            types_dict[q.type] = types_dict.get(q.type,0) + 1
-            complexities_dict[q.complexity] = complexities_dict.get(q.complexity,0)+1
-            logger.error("ahanda comp "+str(q.complexity))
+            if types_enabled:
+                types_dict[q.type] = types_dict.get(q.type,0) + 1
+            if complexity_enabled:
+                complexities_dict[q.complexity] = complexities_dict.get(q.complexity,0)+1
+            #logger.error("ahanda comp "+str(q.complexity))
 
         types_str=""
-        for typ in Types:
-            types_str += "{0}:{1}<br>".format(str(typ),types_dict.get(typ,0))
+        if types_enabled:
+            for typ in Types:
+                types_str += "{0}:{1}<br>".format(str(typ),types_dict.get(typ,0))
 
         complexities_str=""
-        for cp in Complexity:
-            complexities_str += "{0}:{1}<br>".format(str(cp),complexities_dict.get(cp,0))
+        if complexity_enabled:
+            for cp in Complexity:
+                complexities_str += "{0}:{1}<br>".format(str(cp),complexities_dict.get(cp,0))
 
         return nof_q + types_str + complexities_str
 
     def ask_filtered(self, nof_questions, qtype, complexity):
+        ff = FilterFactory()
+        ff.appendTypeFilter(qtype)
+        ff.appendComplexityFilter(complexity)
+
         candidates=[]
         for i in range(0,nof_registered_questions):
             q = self.__get_question__(i)
-            if q.type == Types[qtype] and q.complexity == Complexity[complexity]:
+            if ff.run_filters(q):
                 candidates.append(i) # indexes matching criteria is stored in array
         return self.get_bunch(nof_questions, candidates)
 

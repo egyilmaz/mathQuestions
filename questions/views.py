@@ -53,8 +53,15 @@ def questions_answers(request, nof_questions):
 
 def qa_stats(request):
     qf = QuestionFactory()
-    return HttpResponse( qf.statistics() )
+    return HttpResponse( qf.statistics(True,True) )
 
+def qa_stats_by_type(request):
+    qf = QuestionFactory()
+    return HttpResponse( qf.statistics(True, False) )
+
+def qa_stats_by_complexity(request):
+    qf = QuestionFactory()
+    return HttpResponse( qf.statistics(False, True) )
 
 def qa_by_type(request, qtype, nof_questions):
     return qa_by_type_complexity(request, qtype, None, nof_questions)
@@ -62,7 +69,6 @@ def qa_by_type(request, qtype, nof_questions):
 
 def qa_by_complexity(request, complexity, nof_questions):
     return qa_by_type_complexity(request, None, complexity, nof_questions)
-
 
 def qa_by_type_complexity(request, qtype, complexity, nof_questions):
     nof_questions = min(nof_questions, MAX_ALLOWED_QUESTIONS) # here is our bottleneck.
