@@ -5,15 +5,15 @@ from datetime import timedelta,datetime
 from .Types import Types, Complexity
 
 
-class Question32(BaseQuestion):
+class Question47(BaseQuestion):
     def __init__(self):
         self.type = Types.Time_sub
-        self.complexity = Complexity.Basic
+        self.complexity = Complexity.Advanced
         self.place = random.choice(places)
         self.subj1 = random.choice(subjects)
         self.start = datetime.now()
         self.start_str="{0}:{1}".format(self.start.hour, self.start.minute)
-        hrs = random.choice([1,2,3,4,5])
+        hrs = random.choice([0.1,0.2,0.3,0.5,0.75,1.1,1.2,1.3,1.5,1.75,2.5,2.75,3.5,3.75])
         delta= timedelta(hours=hrs)
         seconds = delta.total_seconds()
         hours = seconds // 3600

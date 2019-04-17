@@ -16,6 +16,7 @@ class Types(Enum):
     Time_24hr_am_pm=12,
     Percentage=13,
     Power=14,
+    Conversion=15,
 
 
 class Complexity(Enum):

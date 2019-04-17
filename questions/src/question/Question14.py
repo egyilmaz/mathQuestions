@@ -16,12 +16,12 @@ class Question14(BaseQuestion):
         self.got = random.choice(range(2, 11))*self.ratio1.denominator*self.ratio2.denominator
         self.spent = self.got*spent_ratio
         self.body = "{subj} spent {ratio1} of her money on {item1} and {ratio2} of her money on {item2}." \
-                    " If she had spent {spent} pounds, How much money she had?"\
+                    " If she had {got} pounds, How much money is she left with?"\
             .format(subj=self.subject, ratio1=self.ratio1, ratio2=self.ratio2, item1=self.item1, item2=self.item2,
-                    spent=self.spent)
+                    got=self.got)
 
     def question(self):
         return self.body
 
     def answer(self):
-        return "{subj} had {got}".format(subj=self.subject, got=self.got)
+        return "{subj} is left with {left}".format(subj=self.subject, left=self.got-self.spent)

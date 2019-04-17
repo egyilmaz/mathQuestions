@@ -9,12 +9,12 @@ from .Types import Types, Complexity
 class Question31(BaseQuestion):
     def __init__(self):
         self.type = Types.Time_add
-        self.complexity = Complexity.Moderate
+        self.complexity = Complexity.Basic
         self.place = random.choice(places)
         self.subj1, self.subj2 = get_n_distinct(subjects,2)
         self.start = datetime.now()
         self.start_str="{0}:{1}".format(self.start.hour, self.start.minute)
-        hrs = random.choice([0.1,0.2,0.3,0.5,0.75,0.25,1,1.5,2,2.5,3,3.5,4])
+        hrs = random.choice([1,2,3,4])
         delta= timedelta(hours=hrs)
         seconds = delta.total_seconds()
         hours = seconds // 3600
