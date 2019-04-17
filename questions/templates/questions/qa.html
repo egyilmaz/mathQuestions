@@ -6,20 +6,28 @@
 </head>
 {% if questions_list %}
     <ol>
-    {% for qid,text,graphic,meta,answer in questions_list %}
-        {% if graphic %}
-        	<li >{{ text }}<div class="qi"><img src="data:image/png;base64,{{graphic}}"></div></li>
-        {% else %}
-        <li > {{ text }}</li>
-        {% endif %}
+    {% for qid,text,graphic,meta,answer, answer_graphic in questions_list %}
+        <li >{{ text }}
+            {% if graphic %}
+                <div class="qi"><img src="data:image/png;base64,{{graphic}}"></div>
+            {% endif %}
+        </li>
         <br>
         <div >
             {% csrf_token %} 
             <input type="text" id="user_input" placeholder="Type in your answer here">
             <input type="hidden" id="correct_answer" value="{{answer}}" />
             <input type="hidden" id="meta" value="{{meta}}" />
-    	    <div id="check_result_{{qid}}"></div>
-	        <button onclick="EvalAndSubmit('{{qid}}','{{answer}}','{{meta}}')">Check</button>
+	        <button onclick="EvalAndSubmit('{{qid}}')">Check</button>
+    	    <div id="hidden_answer_{{qid}}" style="display:none;">
+                {% if answer %}
+                    <br>{{answer}}
+                {% endif %}
+                {% if answer_graphic %}
+                    <div class="qi"><img src="data:image/png;base64,{{answer_graphic}}"></div>
+                {% endif %}
+                <br>{{meta}}
+            </div>
         </div>
         <br>
     {% endfor %}

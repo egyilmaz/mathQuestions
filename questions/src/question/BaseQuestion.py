@@ -9,9 +9,15 @@ class BaseQuestion:
         type_str=str(type(self))
         #"<class 'questions.src.question.Question1.Question1'>"  
         # becomes "Meta: question.Question1.Question1"
-        return 'Meta: '+'.'.join(type_str[1:-2].split('.')[-3:])
+        return 'Meta: '+type_str[1:-2].split('.')[-1]+" "+str(self.type)+" "+str(self.complexity)
 
     def graphic(self):
+        return None
+
+    def answer(self):
+        return None
+
+    def answer_graphic(self):
         return None
 
     def encode_graphics(self, a):

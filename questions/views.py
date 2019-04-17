@@ -36,7 +36,7 @@ def render_qa(request, questions):
     result=[]
     qid=0
     for q in questions:
-        result.append((qid,q.question(),q.graphic(),q.meta(),q.answer()))
+        result.append((qid,q.question(),q.graphic(),q.meta(),q.answer(),q.answer_graphic()))
         qid = qid + 1
     template = loader.get_template("questions/qa.html")
     context = {"questions_list":result}

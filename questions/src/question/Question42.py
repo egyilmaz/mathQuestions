@@ -13,7 +13,6 @@ class Question42(BaseQuestion):
         self.denum = random.choice([3,4,5,6,7])
         self.whole = int(self.num/self.denum)
         self.rem = self.num % self.denum
-        self.res = "{0}  {1}/{2}".format(self.whole,self.rem,self.denum)
 
     def question(self):
         return "Represent the improper fraction "
@@ -23,4 +22,8 @@ class Question42(BaseQuestion):
         return self.encode_graphics(a)
 
     def answer(self):
-        return "{res}".format(res=self.res)
+        return "Answer is"
+
+    def answer_graphic(self):
+        a = r'${0}\dfrac{{{1}}}{{{2}}}$'.format(self.whole, self.rem, self.denum)
+        return self.encode_graphics(a)

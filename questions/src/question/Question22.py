@@ -11,8 +11,8 @@ class Question22(BaseQuestion):
         self.subject = random.choice(boys)
         self.ratio1, self.ratio2 = get_two_distinct(simple_fractions)
         self.int1, self.int2 = get_two_distinct(range(1,7))
-        self.res = str(self.int1+self.int2)+"+"+str(self.ratio1 + self.ratio2)
-
+        self.whole = self.int1+self.int2
+        self.res = self.ratio1 + self.ratio2
     def question(self):
         return "Calculate   "
 
@@ -21,4 +21,8 @@ class Question22(BaseQuestion):
         return self.encode_graphics(a)
 
     def answer(self):
-        return "Result is {res}".format(res=self.res)
+        return "Answer is"
+
+    def answer_graphic(self):
+        a = r'{0}$\dfrac{{{1}}}{{{2}}}$'.format(self.whole,self.res.numerator, self.res.denominator)
+        return self.encode_graphics(a)

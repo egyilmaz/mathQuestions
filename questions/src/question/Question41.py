@@ -8,7 +8,8 @@ class Question41(BaseQuestion):
     def __init__(self):
         self.type = Types.Fraction_add
         self.complexity = Complexity.Advanced
-        self.ratio1, self.ratio2, self.ratio3 = get_n_distinct(simple_fractions,3)
+        self.ratio3, self.ratio2, self.ratio1 = get_n_distinct(simple_fractions,3)
+
         self.res = self.ratio1 + self.ratio2 - self.ratio3
 
     def question(self):
@@ -22,4 +23,9 @@ class Question41(BaseQuestion):
         return self.encode_graphics(a)
 
     def answer(self):
-        return "{res}".format(res=self.res)
+        return "Answer is "
+
+    def answer_graphic(self):
+        a = r'$\dfrac{{{0}}}{{{1}}}$'.format(self.res.numerator, self.res.denominator)
+        return self.encode_graphics(a)
+

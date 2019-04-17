@@ -20,4 +20,8 @@ class Question26(BaseQuestion):
         return self.encode_graphics(a)
 
     def answer(self):
-        return "{res}".format(res=self.res)
+        return "Answer is "
+
+    def answer_graphic(self):
+        a = r'$\dfrac{{{0}}}{{{1}}}$'.format(self.res.numerator, self.res.denominator)
+        return self.encode_graphics(a)
