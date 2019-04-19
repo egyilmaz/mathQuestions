@@ -20,6 +20,7 @@ class Types(Enum):
     Percentage=16,
     Power=17,
     Conversion=18,
+    Geometry_circle_perimeter=19,
 
 
 class Complexity(Enum):

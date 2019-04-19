@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-plt.rcParams["figure.figsize"] = (0.01,0.01)
 from io import BytesIO
 import base64
 from django.template import Template
@@ -54,11 +53,23 @@ class BaseQuestion:
                         "</div>"
         return Template(template_str)
 
+    def draw_shape(self, shape):
+        plt.gca().add_patch(shape)
+        plt.axis('equal')
+        plt.axis('off')
+        buf = BytesIO()
+        plt.savefig(buf, format='PNG')
+        return self.toBuffer( buf )
+
     def encode_graphics(self, a):
         plt.axis('off')
         plt.text(-1, 1, a, fontsize=11)
+        plt.gcf().set_size_inches(2,0.01)
         buf = BytesIO()
         plt.savefig(buf, format='PNG', bbox_inches='tight', pad_inches=0)
+        return self.toBuffer( buf )
+
+    def toBuffer(self,buf):
         graphic = base64.b64encode(buf.getvalue()).decode('utf-8').replace('\n','')
         plt.clf()
         buf.close()
