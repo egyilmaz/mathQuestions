@@ -247,3 +247,6 @@ class QuestionFactory:
         if qtype == 52:
             from .Question53 import Question53
             return Question53()
+        if qtype == 53:
+            from .Question54 import Question54
+            return Question54()

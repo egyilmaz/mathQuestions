@@ -1,6 +1,8 @@
 function EvalAndSubmit(qid){
-//    var input = document.getElementById("user_input").value;
-//    out = answer+"<br>"+ meta+"<br>";
-//    document.getElementById("check_result_"+qid).innerHTML = out
-    document.getElementById("hidden_answer_"+qid).style.display = "block"
+    var ans = document.getElementById("hidden_answer_"+qid)
+    if (ans.style.display === "none") {
+        ans.style.display = "block";
+    } else {
+        ans.style.display = "none";
+    }
 }
