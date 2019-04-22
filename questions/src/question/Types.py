@@ -22,6 +22,8 @@ class Types(Enum):
     Conversion=18,
     Geometry_circle_perimeter=19,
     Money = 20,
+    decimal = 21,
+    ratio=22,
 
 
 class Complexity(Enum):
