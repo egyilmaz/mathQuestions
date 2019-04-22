@@ -21,6 +21,7 @@ class Types(Enum):
     Power=17,
     Conversion=18,
     Geometry_circle_perimeter=19,
+    Money = 20,
 
 
 class Complexity(Enum):
