@@ -20,11 +20,11 @@ class Types(Enum):
     Percentage=16,
     Power=17,
     Conversion=18,
-    Geometry_circle_perimeter=19,
-    Money = 20,
-    decimal = 21,
-    ratio=22,
-
+    Money = 19,
+    decimal = 20,
+    ratio=21,
+    Geometry_circle_perimeter=22,
+    Geometry_circle_area=23,
 
 class Complexity(Enum):
     Basic = 1,

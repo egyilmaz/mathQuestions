@@ -4,18 +4,19 @@ from .BaseQuestion import BaseQuestion
 from .Types import Types, Complexity
 from django.template import Template
 
-class Question54(BaseQuestion):
+class Question75(BaseQuestion):
     def __init__(self):
-        self.type = Types.Geometry_circle_perimeter
-        self.complexity = Complexity.Moderate
-        self.radius = random.choice(range(3,10))
-        self.res = 2 * 3.0 * self.radius
+        self.type = Types.Geometry_circle_area
+        self.complexity = Complexity.Advanced
+        self.radius = random.choice(range(3, 8))
+        self.pi = 3.14
+        self.res = round( self.pi * self.radius * self.radius, 3)
 
     def question(self):
-        return "Given the circle below, What is its perimeter?  "
+        return "Given the circle below, What is its area?  "
 
     def draw_graphic(self):
-        a = r'(P = $2 \pi r$, where $\pi$ is 3.0)'
+        a = r'(A = $\pi r^2$, where $\pi$ is {0})'.format(self.pi)
         return self.encode_graphics(a)
 
     def draw_circle(self):
@@ -27,7 +28,7 @@ class Question54(BaseQuestion):
         return self.draw_shape( circle )
 
     def answer(self):
-        return "Perimeter is {0}".format(self.res)
+        return 'Area is {0}'.format(self.res)
 
     def context(self):
         question=self.question()

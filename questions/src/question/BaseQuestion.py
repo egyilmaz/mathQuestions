@@ -28,29 +28,30 @@ class BaseQuestion:
         answer_graphic = self.answer_graphic()
         return {"text": text, "graphic": graphic, "meta": meta, "answer": answer, "answer_graphic": answer_graphic}
 
+    def std_input_answer_template_str(self):
+        return  "<div >"\
+                    "{% csrf_token %}"\
+                    "<input type=\"text\" id=\"user_input\" placeholder=\"Type in your answer here\"><br>"\
+                    "<input type=\"hidden\" id=\"correct_answer\" value=\"{{answer}}\" />"\
+                    "<input type=\"hidden\" id=\"meta\" value=\"{{meta}}\" />"\
+                    "<button onclick=\"EvalAndSubmit('{{qid}}')\">Check</button><br>"\
+                    "<div id=\"hidden_answer_{{qid}}\" style=\"display:none;\">"\
+                        "{% if answer %}"\
+                            "<br>{{answer}}"\
+                        "{% endif %}"\
+                        "{% if answer_graphic %}"\
+                            "<div class=\"qi\"><img src=\"data:image/png;base64,{{answer_graphic}}\"></div>"\
+                        "{% endif %}"\
+                        "<br>{{meta}}"\
+                    "</div><br>"\
+                "</div>"
+
     def template(self):
         template_str =  "<div>"\
                             "{{ text }}"\
                             "{% if graphic %}"\
                                 "<div class=\"qi\"><img src=\"data:image/png;base64,{{graphic}}\"></div>"\
-                            "{% endif %}"\
-                            "<div >"\
-                                "{% csrf_token %}"\
-                                "<input type=\"text\" id=\"user_input\" placeholder=\"Type in your answer here\"><br>"\
-                                "<input type=\"hidden\" id=\"correct_answer\" value=\"{{answer}}\" />"\
-                                "<input type=\"hidden\" id=\"meta\" value=\"{{meta}}\" />"\
-                                "<button onclick=\"EvalAndSubmit('{{qid}}')\">Check</button><br>"\
-                                "<div id=\"hidden_answer_{{qid}}\" style=\"display:none;\">"\
-                                    "{% if answer %}"\
-                                        "<br>{{answer}}"\
-                                    "{% endif %}"\
-                                    "{% if answer_graphic %}"\
-                                        "<div class=\"qi\"><img src=\"data:image/png;base64,{{answer_graphic}}\"></div>"\
-                                    "{% endif %}"\
-                                    "<br>{{meta}}"\
-                                "</div><br>"\
-                            "</div>"\
-                        "</div>"
+                            "{% endif %}" + self.std_input_answer_template_str() + "</div>"
         return Template(template_str)
 
     def draw_shape(self, shape):
