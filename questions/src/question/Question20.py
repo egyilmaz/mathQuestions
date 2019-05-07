@@ -4,7 +4,6 @@ from fractions import Fraction
 from .Types import Types, Complexity
 
 
-# Question type is simplify A/B
 class Question20(BaseQuestion):
     def __init__(self):
         self.type = Types.Fraction_simplify

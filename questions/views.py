@@ -1,6 +1,8 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotAllowed
+from django.shortcuts import render
 from django.template import Template, RequestContext
 from questions.src.question.QuestionFactory import QuestionFactory, nof_registered_questions
+from django.contrib.auth import authenticate, login
 
 MAX_ALLOWED_QUESTIONS = 100
 
@@ -67,3 +69,15 @@ def render_qa(request, questions):
         response += "</li>"
     response += "</ol></body>"
     return HttpResponse(response)
+
+
+def qa_login(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(request, username=username, password=password)
+    if user is not None:
+        login(request, user)
+        return render(request, 'questions/login_error.html')
+    else:
+        return HttpResponseNotAllowed()
+

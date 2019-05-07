@@ -25,6 +25,7 @@ class Types(Enum):
     ratio=21,
     Geometry_circle_perimeter=22,
     Geometry_circle_area=23,
+    chart=24,
 
 class Complexity(Enum):
     Basic = 1,

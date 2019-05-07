@@ -1,6 +1,6 @@
 import random
 from .BaseQuestion import BaseQuestion
-from .resources.Resource import boys, items, random_fractions
+from .resources.Resource import random_fractions
 from .utils.Utility import get_two_distinct
 from .Types import Types, Complexity
 
