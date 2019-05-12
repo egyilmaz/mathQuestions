@@ -30,7 +30,6 @@ class BaseQuestion:
 
     def std_input_answer_template_str(self):
         return  "<div >"\
-                    "{% csrf_token %}"\
                     "<input type=\"text\" id=\"user_input\" placeholder=\"Type in your answer here\"><br>"\
                     "<input type=\"hidden\" id=\"correct_answer\" value=\"{{answer}}\" />"\
                     "<input type=\"hidden\" id=\"meta\" value=\"{{meta}}\" />"\

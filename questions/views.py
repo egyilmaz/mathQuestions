@@ -53,10 +53,9 @@ def render_qa(request, questions):
                     "{% load static %}"\
                     "<link rel=\"stylesheet\" href=\"{% static 'questions/css/the.css' %}\">"\
                     "<script src=\"{% static 'questions/js/eval_and_submit.js'%}\"></script>"\
-                "</head>"
+                "</head><body><form autocomplete=\"off\" method=\"POST\" onsubmit=\"event.preventDefault();\" >{% csrf_token %}<ol>"
     hdr_template = Template(header_str)
     response = hdr_template.render(RequestContext(request,{}))
-    response += "<body><ol>"
     qid=0
     for q in questions:
         response+="<li>"
@@ -67,7 +66,7 @@ def render_qa(request, questions):
         response += template.render(c)
         qid += 1
         response += "</li>"
-    response += "</ol></body>"
+    response += "</ol></form></body>"
     return HttpResponse(response)
 
 

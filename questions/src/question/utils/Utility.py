@@ -1,9 +1,11 @@
 import random
 
 def get_n_distinct(elements, n):
+    return sorted( get_unsorted_n_distinct(elements,n))
+
+def get_unsorted_n_distinct(elements, n):
     srand = random.SystemRandom()
-    return sorted(srand.sample(elements, n))
-    
+    return srand.sample(elements,n)
 
 def get_two_distinct(elements):
     return get_n_distinct(elements,2)
