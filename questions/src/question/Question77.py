@@ -10,11 +10,11 @@ class Question77(BaseQuestion):
     def __init__(self):
         self.type = Types.chart
         self.complexity = Complexity.Moderate
-        scores = [20, 25, 30, 35, 40, 45, 50, 55]
+        scores = [20, 40, 60, 80, 100, 120]
         self.scores_boys = get_n_distinct(scores, 4)
         self.scores_girls = get_n_distinct(scores, 4)
-        self.body = "Looking at the given chart of scores per courses, what is the sum of boys scores in Maths and Reading?"
-        self.res = self.scores_boys[0]+self.scores_boys[2]
+        self.body = "Looking at the given chart of scores per courses, what is the average of girls scores in all courses?"
+        self.res = sum(self.scores_girls)/4.0
 
     def question(self):
         return self.body

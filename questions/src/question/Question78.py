@@ -1,5 +1,6 @@
 from .BaseQuestion import BaseQuestion
 from .Types import Types, Complexity
+from fractions import Fraction
 import numpy as np
 import matplotlib.pyplot as plt
 from io import BytesIO
@@ -10,20 +11,18 @@ class Question78(BaseQuestion):
     def __init__(self):
         self.type = Types.chart
         self.complexity = Complexity.Moderate
-        scores = [20, 25, 30, 35, 40, 45, 50, 55]
+        scores = [20, 25, 30, 35, 40, 45, 50, 55, 60, 70, 80, 90, 100]
         self.scores_boys = get_n_distinct(scores, 4)
         self.scores_girls = get_n_distinct(scores, 4)
         self.courses=('Maths', 'Science', 'Reading', 'Writing')
-        self.body = "Looking at the given chart of scores per courses, what is the ratio of girls over boys for Science and Writing?"
+        self.body = "Looking at the given chart of scores per courses, what is the ratio of total scores of girls over boys?"
+        self.res = Fraction(sum(self.scores_girls), sum(self.scores_boys))
 
     def question(self):
         return self.body
 
     def answer_graphic(self):
-        a = r'$\dfrac{{{0}}}{{{1}}}$  and  $\dfrac{{{2}}}{{{3}}}$ '.format(self.scores_girls[1],
-                                                                                  self.scores_boys[1],
-                                                                                  self.scores_girls[3],
-                                                                                  self.scores_boys[3])
+        a = r'$\dfrac{{{0}}}{{{1}}}$ '.format(self.res.numerator,self.res.denominator)
         return self.encode_graphics(a)
 
     def graphic(self):

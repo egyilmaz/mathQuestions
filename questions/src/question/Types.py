@@ -26,6 +26,9 @@ class Types(Enum):
     Geometry_circle_perimeter=22,
     Geometry_circle_area=23,
     chart=24,
+    Measurement=25,
+    General_Problem=26,
+    Money_exchange_rate=27,
 
 class Complexity(Enum):
     Basic = 1,
