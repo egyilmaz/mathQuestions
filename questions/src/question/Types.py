@@ -29,6 +29,7 @@ class Types(Enum):
     Measurement=25,
     General_Problem=26,
     Money_exchange_rate=27,
+    Geometry_angle=28,
 
 class Complexity(Enum):
     Basic = 1,
