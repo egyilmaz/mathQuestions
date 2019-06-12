@@ -7,7 +7,7 @@ from .Types import Types, Complexity
 class Question84(BaseQuestion):
     def __init__(self):
         self.type = Types.General_Problem
-        self.complexity = Complexity.Advanced
+        self.complexity = Complexity.Moderate
         self.source, self.target = get_two_distinct(['GBP', 'USD', 'Euro', 'TL', 'Rupee', 'Yuan', 'Won'])
         self.perkm = random.choice([2.3, 3.5, 4.2, 1.8, 0.9, 1.3])
         self.exrate = random.choice([1.2, 1.3, 1.4, 2.3, 2.4, 3.3, 3.4])

@@ -1,20 +1,21 @@
 import random
+from .utils.Utility import get_two_distinct
 from .BaseQuestion import BaseQuestion
-from .utils.Utility import get_n_distinct
 from .Types import Types, Complexity
 
 
 class Question89(BaseQuestion):
     def __init__(self):
-        self.type = Types.Percentage
+        self.type = Types.General_Problem
         self.complexity = Complexity.Advanced
-        self.male,self.female = get_n_distinct([30,40,50,60,70,80,90],2)
-        self.body = "In a school, there are {0} female and {1} male students. What percentage of school pupils are male and female.".format(self.female,self.male)
-        total = self.male + self.female
-        self.resm,self.resf = (self.male*100.0)/total, (self.female*100.0)/total
+        self.source, self.forex = get_two_distinct(['GBP','USD','Euro','TL','Rupee','Yuan','Won'])
+        self.per100m = random.choice([2.3, 3.5, 4.2, 1.8, 0.9, 1.3])
+        self.km = random.choice([4,5,6,7,8,9,10,13,14,15,16,17,18,20,30,40])
+        self.res = self.per100m*self.km*10
 
     def question(self):
-        return self.body
+        return "Taxi is charging {0} {1} every 100m. If it takes {2} km from home to work. How much does it cost?"\
+            .format(self.per100m,self.forex,self.km)
 
     def answer(self):
-        return "Female {0} Male {1}".format(self.resf,self.resm)
+        return "It costs {0}".format(self.res)
