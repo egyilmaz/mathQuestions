@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 	'questions.apps.QuestionsConfig',
+    'client.apps.ClientConfig',
 ]
 
 MIDDLEWARE = [
@@ -120,12 +121,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-STATIC_ROOT = os.path.join(BASE_DIR, 'questions/static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 STATIC_URL = '/static/'
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Extra places for collectstatic to find static files.
-#STATICFILES_DIRS = (os.path.join(PROJECT_DIR, '../questions/static'),)
+STATICFILES_DIRS = ( os.path.join(BASE_DIR, 'questions/static'),
+                     os.path.join(BASE_DIR, 'client/static'),)
