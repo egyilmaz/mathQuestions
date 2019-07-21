@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import User, Stats
 
-# Register your models here.
+#Accessing model from admin site
+admin.site.register(User)
