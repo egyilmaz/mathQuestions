@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 	'questions.apps.QuestionsConfig',
     'client.apps.ClientConfig',
+    'user.apps.UserConfig',
 ]
 
 MIDDLEWARE = [
@@ -129,4 +130,5 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = ( os.path.join(BASE_DIR, 'questions/static'),
-                     os.path.join(BASE_DIR, 'client/static'),)
+                     os.path.join(BASE_DIR, 'client/static'),
+                     os.path.join(BASE_DIR, 'user/static'),)
