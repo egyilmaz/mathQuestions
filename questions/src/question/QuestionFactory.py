@@ -4,7 +4,7 @@ from .FilterFactory import FilterFactory
 import logging
 logger = logging.getLogger(__name__)
 
-nof_registered_questions = 93
+nof_registered_questions = 104
 
 class QuestionFactory:
 
@@ -22,7 +22,12 @@ class QuestionFactory:
         complexities_dict={}
         for q in all_questions:
             if types_enabled:
-                types_dict[q.type] = types_dict.get(q.type,0) + 1
+                if "enum" in str(type(q.type)): #single enum type question
+                    types_dict[q.type] = types_dict.get(q.type,0) + 1
+                else: # some questions are qualified with more than one type, list of enums
+                    for typ in q.type:
+                        types_dict[typ] = types_dict.get(typ, 0) + 1
+
             if complexity_enabled:
                 complexities_dict[q.complexity] = complexities_dict.get(q.complexity,0)+1
             #logger.error("ahanda comp "+str(q.complexity))
@@ -367,3 +372,36 @@ class QuestionFactory:
         if qtype == 92:
             from .Question93 import Question93
             return Question93()
+        if qtype == 93:
+            from .Question94 import Question94
+            return Question94()
+        if qtype == 94:
+            from .Question95 import Question95
+            return Question95()
+        if qtype == 95:
+            from .Question96 import Question96
+            return Question96()
+        if qtype == 96:
+            from .Question97 import Question97
+            return Question97()
+        if qtype == 97:
+            from .Question98 import Question98
+            return Question98()
+        if qtype == 98:
+            from .Question99 import Question99
+            return Question99()
+        if qtype == 99:
+            from .Question100 import Question100
+            return Question100()
+        if qtype == 100:
+            from .Question101 import Question101
+            return Question101()
+        if qtype == 101:
+            from .Question102 import Question102
+            return Question102()
+        if qtype == 102:
+            from .Question103 import Question103
+            return Question103()
+        if qtype == 103:
+            from .Question104 import Question104
+            return Question104()

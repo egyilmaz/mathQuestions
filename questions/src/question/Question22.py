@@ -6,7 +6,7 @@ from .Types import Types, Complexity
 
 class Question22(BaseQuestion):
     def __init__(self):
-        self.type = Types.Fraction_add
+        self.type = [Types.Fraction_add, Types.sat_arithmetic]
         self.complexity = Complexity.Moderate
         self.subject = random.choice(boys)
         self.ratio1, self.ratio2 = get_two_distinct(simple_fractions)

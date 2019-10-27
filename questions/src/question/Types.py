@@ -30,6 +30,9 @@ class Types(Enum):
     General_Problem=26,
     Money_exchange_rate=27,
     Geometry_angle=28,
+    Arithmetic=29,
+    sat_arithmetic=30,
+    sat_reasoning=31,
 
 class Complexity(Enum):
     Basic = 1,

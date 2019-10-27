@@ -6,7 +6,7 @@ from .Types import Types, Complexity
 
 class Question17(BaseQuestion):
     def __init__(self):
-        self.type = Types.Fraction_compare
+        self.type = [Types.Fraction_compare, Types.sat_arithmetic]
         self.complexity = Complexity.Basic
         self.ratio1, self.ratio2 = get_unsorted_n_distinct(simple_fractions,2)
         self.res = (self.ratio1 - self.ratio2 ) > 0

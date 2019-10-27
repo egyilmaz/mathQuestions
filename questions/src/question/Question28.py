@@ -5,7 +5,7 @@ from .Types import Types, Complexity
 
 class Question28(BaseQuestion):
     def __init__(self):
-        self.type = Types.Percentage
+        self.type = [Types.Percentage,Types.sat_arithmetic]
         self.complexity = Complexity.Moderate
         self.first, self.second = get_two_distinct([2,5,10,20,25,30,40,50,60,75,90,100])
         self.res1 = Fraction(self.first,100)

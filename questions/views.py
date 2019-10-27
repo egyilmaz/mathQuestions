@@ -4,7 +4,7 @@ from django.template import Template, RequestContext
 from questions.src.question.QuestionFactory import QuestionFactory, nof_registered_questions
 from django.contrib.auth import authenticate, login
 
-MAX_ALLOWED_QUESTIONS = 100
+MAX_ALLOWED_QUESTIONS = 200
 
 def qa_stats(request):
     qf = QuestionFactory()

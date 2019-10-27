@@ -6,7 +6,7 @@ from .Types import Types, Complexity
 
 class Question27(BaseQuestion):
     def __init__(self):
-        self.type = Types.Percentage
+        self.type = [Types.Percentage,Types.sat_arithmetic]
         self.complexity = Complexity.Moderate
         self.pool = [Fraction(1,2),Fraction(1/4),Fraction(3/4), Fraction(1,10),Fraction(2,5),Fraction(3,5),Fraction(4,5),Fraction(5,5)]
         self.first, self.second = get_two_distinct( self.pool )
