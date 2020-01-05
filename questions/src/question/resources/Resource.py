@@ -1,7 +1,7 @@
 from fractions import Fraction
-subjects = ["George", "Dragon", "Emily", "Stuart", "Defne", "Aya", "Alba", "Talah", "Aleena", "Egemen", "Erdem", "Ozge"]
+subjects = ["George", "Dragon", "Emily", "Stuart", "Defne", "Aya", "Alba", "Talah", "Marley", "Anabel", "Aleena", "Egemen", "Erdem", "Ozge"]
 boys = ["George", "Dragon", "Stuart", "Albert", "John", "Frederic", "Kay", "Erdem","Egemen","Ata","Gunes","Atilla"]
-girls = ["Emily", "Defne", "Aya", "Alba", "Talah", "Maya", "Sarah", "Aleena", "Ozge", "Kamuran"]
+girls = ["Emily", "Defne", "Aya", "Alba", "Talah", "Maya", "Sarah", "Marley", "Anabel", "Aleena", "Ozge", "Kamuran"]
 items = ["marbles", "pens", "pencils", "flowers", "books", "CDs", "coins", "apples", "oranges", "masks"]
 args = ['X', 'Y', 'Z', 'A', 'B', 'C', 'P', 'Q', 'R']
 values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15, 20, 30, 40, 50, 60, 70, 80, 90]

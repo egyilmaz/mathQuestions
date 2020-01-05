@@ -4,7 +4,7 @@ from .FilterFactory import FilterFactory
 import logging
 logger = logging.getLogger(__name__)
 
-nof_registered_questions = 104
+nof_registered_questions = 120
 
 class QuestionFactory:
 
@@ -405,3 +405,51 @@ class QuestionFactory:
         if qtype == 103:
             from .Question104 import Question104
             return Question104()
+        if qtype == 104:
+            from .Question105 import Question105
+            return Question105()
+        if qtype == 105:
+            from .Question106 import Question106
+            return Question106()
+        if qtype == 106:
+            from .Question107 import Question107
+            return Question107()
+        if qtype == 107:
+            from .Question108 import Question108
+            return Question108()
+        if qtype == 108:
+            from .Question109 import Question109
+            return Question109()
+        if qtype == 109:
+            from .Question110 import Question110
+            return Question110()
+        if qtype == 110:
+            from .Question111 import Question111
+            return Question111()
+        if qtype == 111:
+            from .Question112 import Question112
+            return Question112()
+        if qtype == 112:
+            from .Question113 import Question113
+            return Question113()
+        if qtype == 113:
+            from .Question114 import Question114
+            return Question114()
+        if qtype == 114:
+            from .Question115 import Question115
+            return Question115()
+        if qtype == 115:
+            from .Question116 import Question116
+            return Question116()
+        if qtype == 116:
+            from .Question117 import Question117
+            return Question117()
+        if qtype == 117:
+            from .Question118 import Question118
+            return Question118()
+        if qtype == 118:
+            from .Question119 import Question119
+            return Question119()
+        if qtype == 119:
+            from .Question120 import Question120
+            return Question120()

@@ -1,6 +1,10 @@
+sympy
+roman
 django
 gunicorn
 django-heroku
 matplotlib
 whitenoise
 numpy
+num2words
+roman-numerals

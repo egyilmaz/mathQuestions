@@ -9,7 +9,7 @@ from .utils.Utility import get_n_distinct
 
 class Question78(BaseQuestion):
     def __init__(self):
-        self.type = Types.chart
+        self.type = Types.Chart
         self.complexity = Complexity.Moderate
         scores = [20, 25, 30, 35, 40, 45, 50, 55, 60, 70, 80, 90, 100]
         self.scores_boys = get_n_distinct(scores, 4)

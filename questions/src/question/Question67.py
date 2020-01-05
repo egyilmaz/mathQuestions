@@ -6,7 +6,7 @@ from .Types import Types, Complexity
 
 class Question67(BaseQuestion):
     def __init__(self):
-        self.type = Types.decimal
+        self.type = Types.Decimal
         self.complexity = Complexity.Moderate
         self.oper = random.choice(['+','-','*'])
         self.dec1,self.dec2 = get_two_distinct([0.01,0.02,0.03,0.04,0.5,0.6,1.0,2.1,3.2,3.4])

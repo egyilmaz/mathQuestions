@@ -6,7 +6,7 @@ from .resources.Resource import girls
 
 class Question63(BaseQuestion):
     def __init__(self):
-        self.type = Types.decimal
+        self.type = Types.Decimal
         self.complexity = Complexity.Moderate
         self.subj = random.choice(girls)
         self.dec = random.choice([0.1,0.2,0.3])

@@ -1,3 +1,4 @@
+import random
 from .BaseQuestion import BaseQuestion
 from .Types import Types, Complexity
 import numpy as np
@@ -8,12 +9,13 @@ from .utils.Utility import get_n_distinct
 
 class Question77(BaseQuestion):
     def __init__(self):
-        self.type = Types.chart
+        self.type = [Types.Chart, Types.sat_reasoning]
         self.complexity = Complexity.Moderate
         scores = [20, 40, 60, 80, 100, 120]
         self.scores_boys = get_n_distinct(scores, 4)
         self.scores_girls = get_n_distinct(scores, 4)
-        self.body = "Looking at the given chart of scores per courses, what is the average of girls scores in all courses?"
+        wording = random.sample(['mean','average'],1)[0]
+        self.body = "Looking at the given chart of scores per courses, what is the " + wording + " of girls scores in all courses?"
         self.res = sum(self.scores_girls)/4.0
 
     def question(self):

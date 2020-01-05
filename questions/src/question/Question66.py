@@ -16,7 +16,7 @@ def get_decimal_question( ):
 
 class Question66(BaseQuestion):
     def __init__(self):
-        self.type = Types.decimal
+        self.type = Types.Decimal
         self.complexity = Complexity.Basic
         self.res1,q1 = get_decimal_question()
         self.res2,q2 = get_decimal_question()

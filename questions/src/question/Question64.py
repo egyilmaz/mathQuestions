@@ -7,7 +7,7 @@ from .utils.Utility import get_two_distinct
 
 class Question64(BaseQuestion):
     def __init__(self):
-        self.type = Types.decimal
+        self.type = Types.Decimal
         self.complexity = Complexity.Advanced
         self.subj = random.choice(boys)
         self.dec1, self.dec2 = get_two_distinct([0.1,0.2,0.3,0.4,0.5])
