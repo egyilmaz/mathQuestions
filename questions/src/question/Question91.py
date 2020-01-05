@@ -9,7 +9,7 @@ from io import BytesIO
 
 class Question91(BaseQuestion):
     def __init__(self):
-        self.type = Types.Chart
+        self.type = [Types.Geometry_angle]
         self.complexity = Complexity.Basic
         self.angle = random.choice([20, 25, 30, 35, 40, 45, 50, 55, 60, 70, 80])
         self.body = "In the given figure, what is the complementing angle?".format(self.angle)

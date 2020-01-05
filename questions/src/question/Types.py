@@ -40,6 +40,7 @@ class Types(Enum):
     Geometry_rectangle_area=36,
     Estimation=37,
     Prime_number=38,
+    Geometry_triangle=39,
 
 class Complexity(Enum):
     Basic = 1,
