@@ -14,7 +14,7 @@ class Question110(BaseQuestion):
         random.shuffle(asked)
         self.body = "Which two of the {0} adds up to {1}".format(asked, result )
 
-        self.res="{0} and {1}".format(double, triple)
+        self.res="{0} and {1}".format(double[0], triple[0])
 
     def question(self):
         return self.body

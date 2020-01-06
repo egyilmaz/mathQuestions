@@ -9,7 +9,7 @@ class Question112(BaseQuestion):
         self.type = [Types.Factors, Types.sat_reasoning]
         self.complexity = Complexity.Moderate
         number = random.choice([40, 50, 90, 100,120,243,75, 125, 490, 1210, 64, 1000])
-        self.body = "Find the factors of {0}".format(number)
+        self.body = "Find the prime factors of {0}".format(number)
         self.res="{0}".format(factorint(number, multiple=True))
 
     def question(self):
