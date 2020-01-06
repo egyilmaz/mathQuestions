@@ -29,11 +29,14 @@ class Question124(BaseQuestion):
 
     def graphic(self):
         # prepare some coordinates
-        x, y, z = np.indices((5, 5, 5))
+        space = random.choice([5,6,7])
+        x, y, z = np.indices((space, space, space))
 
+        diffy = random.choice([2,3,4])
+        diffx = random.choice([1,2,3,4])
         # draw cuboids in the top left and bottom right corners, and a link between them
-        cube1 = (x < 2) & (y < 3) & (z < 3)
-        cube2 = (x < 4) & (y < 1) & (z < 3)
+        cube1 = (x < space-diffx) & (y < space) & (z < space)
+        cube2 = (x < space) & (y < space-diffy) & (z < space)
 
         # combine the objects into a single boolean array
         voxels = cube1 | cube2
