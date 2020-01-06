@@ -41,6 +41,8 @@ class Types(Enum):
     Estimation=37,
     Prime_number=38,
     Geometry_triangle=39,
+    Geometry_cuboid = 40,
+    Geometry_translation = 41,
 
 class Complexity(Enum):
     Basic = 1,

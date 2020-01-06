@@ -4,7 +4,7 @@ from .FilterFactory import FilterFactory
 import logging
 logger = logging.getLogger(__name__)
 
-nof_registered_questions = 124
+nof_registered_questions = 125
 
 class QuestionFactory:
 
@@ -465,3 +465,6 @@ class QuestionFactory:
         if qtype == 123:
             from .Question124 import Question124
             return Question124()
+        if qtype == 124:
+            from .Question125 import Question125
+            return Question125()

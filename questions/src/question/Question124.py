@@ -14,7 +14,7 @@ from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
 
 class Question124(BaseQuestion):
     def __init__(self):
-        self.type = [Types.Geometry_triangle, Types.sat_reasoning]
+        self.type = [Types.Geometry_cuboid, Types.sat_reasoning]
         self.complexity = Complexity.Moderate
         self.a = random.choice([20, 25, 30, 35, 40, 45, 50, 55, 60])
         self.b = random.choice([20, 25, 30, 35, 40, 45, 50, 55, 60])
