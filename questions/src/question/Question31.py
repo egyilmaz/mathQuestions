@@ -8,7 +8,7 @@ from .Types import Types, Complexity
 
 class Question31(BaseQuestion):
     def __init__(self):
-        self.type = [Types.Time_add, Types.sat_reasoning]
+        self.type = [Types.Time_add]
         self.complexity = Complexity.Basic
         self.place = random.choice(places)
         self.subj1, self.subj2 = get_n_distinct(subjects,2)
