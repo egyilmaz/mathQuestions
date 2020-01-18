@@ -43,6 +43,8 @@ class Types(Enum):
     Geometry_triangle=39,
     Geometry_cuboid = 40,
     Geometry_translation = 41,
+    Geometry_line=42,
+    Geometry_square_area=43,
 
 class Complexity(Enum):
     Basic = 1,

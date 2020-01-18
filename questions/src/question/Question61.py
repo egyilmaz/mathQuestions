@@ -6,7 +6,7 @@ from .resources.Resource import boys
 
 class Question61(BaseQuestion):
     def __init__(self):
-        self.type = Types.Percentage
+        self.type = [Types.Percentage, Types.sat_reasoning]
         self.complexity = Complexity.Moderate
         self.subj = random.choice(boys)
         self.tip = random.choice([5,10,15])

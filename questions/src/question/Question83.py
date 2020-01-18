@@ -6,7 +6,7 @@ from .Types import Types, Complexity
 
 class Question83(BaseQuestion):
     def __init__(self):
-        self.type = Types.General_Problem
+        self.type = [Types.General_Problem, Types.sat_reasoning]
         self.complexity = Complexity.Basic
         self.source, self.forex = get_two_distinct(['GBP','USD','Euro','TL','Rupee','Yuan','Won'])
         self.perkm = random.choice([2.3, 3.5, 4.2, 1.8, 0.9, 1.3])

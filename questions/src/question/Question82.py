@@ -6,7 +6,7 @@ from .Types import Types, Complexity
 
 class Question82(BaseQuestion):
     def __init__(self):
-        self.type = Types.Money_exchange_rate
+        self.type = [Types.Money_exchange_rate, Types.sat_reasoning]
         self.complexity = Complexity.Moderate
         self.source, self.target = get_two_distinct(['GBP','USD','Euro','TL','Rupee','Yuan','Won'])
         self.money = random.choice([20,40,50,100,200,1000,2000])
