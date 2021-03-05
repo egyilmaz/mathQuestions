@@ -1,54 +1,55 @@
 from django.http import HttpResponse, HttpResponseNotAllowed
 from django.shortcuts import render
 from django.template import Template, RequestContext
-from questions.src.question.QuestionFactory import QuestionFactory, nof_registered_questions
+from questions.src.question.QuestionFactory import QuestionFactory
 from django.contrib.auth import authenticate, login
 
 MAX_ALLOWED_QUESTIONS = 200
+qf = QuestionFactory()
 
-def qa_stats(request):
-    qf = QuestionFactory()
-    return HttpResponse( qf.statistics(True,True) )
 
-def qa_stats_by_type(request):
-    qf = QuestionFactory()
-    return HttpResponse( qf.statistics(True, False) )
+def qa_stats(request, year):
+    return HttpResponse( qf.statistics(True,True, year) )
 
-def qa_stats_by_complexity(request):
-    qf = QuestionFactory()
-    return HttpResponse( qf.statistics(False, True) )
+def qa_stats_by_type(request, year):
+    return HttpResponse( qf.statistics(True, False, year) )
 
-def qa_index_start_from(request, nof_questions, start_from):
-    return qa_index_start_end(request, nof_questions, start_from, nof_registered_questions)
+def qa_stats_by_complexity(request, year):
+    return HttpResponse( qf.statistics(False, True, year) )
 
-def qa_index_start_end(request, nof_questions, start, end):
-    questions = get_question_list(nof_questions, start, end)
-    return render_qa(request, questions)
+def qa_index_start_from(request, nof_questions, start_from, year):
+    nof_registered_questions = qf.get_nof_questions(year)
+    return qa_index_start_end(request, nof_questions, start_from, nof_registered_questions, year)
 
-def qa_questions_answers(request, nof_questions):
-    questions = get_question_list(nof_questions, 1, nof_registered_questions)
-    return render_qa(request, questions)
+def qa_index_start_end(request, nof_questions, start, end, year):
+    questions = get_question_list(nof_questions, start, end, year)
+    return render_qa(request, questions, year)
 
-def qa_by_type(request, qtype, nof_questions):
-    return qa_by_type_complexity(request, qtype, None, nof_questions)
+def qa_questions_answers(request, nof_questions, year):
+    nof_registered_questions = qf.get_nof_questions(year)
+    questions = get_question_list(nof_questions, 1, nof_registered_questions, year)
+    return render_qa(request, questions, year)
 
-def qa_by_complexity(request, complexity, nof_questions):
-    return qa_by_type_complexity(request, None, complexity, nof_questions)
+def qa_by_type(request, qtype, nof_questions, year):
+    return qa_by_type_complexity(request, qtype, None, nof_questions, year)
 
-def qa_by_type_complexity(request, qtype, complexity, nof_questions):
-    nof_questions = min(nof_questions, MAX_ALLOWED_QUESTIONS) # here is our bottleneck.
-    qf = QuestionFactory()
-    questions = qf.ask_filtered(nof_questions, qtype, complexity)
-    return render_qa(request, questions)
+def qa_by_complexity(request, complexity, nof_questions, year):
+    return qa_by_type_complexity(request, None, complexity, nof_questions, year)
 
-def get_question_list(nof_questions, start, end):
-    nof_questions = min(nof_questions, MAX_ALLOWED_QUESTIONS) # here is our bottleneck.
-    qf = QuestionFactory()
-    return qf.ask_question(nof_questions, start, end) #return list of questions
+def qa_by_type_complexity(request, qtype, complexity, nof_questions, year):
+    nof_registered_questions = qf.get_nof_questions(year)
+    nof_questions = min(nof_questions, nof_registered_questions)
+    questions = qf.ask_filtered(nof_questions, qtype, complexity, year)
+    return render_qa(request, questions, year)
 
-def render_qa(request, questions):
+def get_question_list(nof_questions, start, end, year):
+    nof_registered_questions = qf.get_nof_questions(year)
+    nof_questions = min(nof_questions, nof_registered_questions)
+    return qf.ask_question(nof_questions, start, end, year) #return list of questions
+
+def render_qa(request, questions, year):
     header_str = "<!DOCTYPE html>"\
-                "<title> Review Your Maths </title>"\
+                "<title> Review Your Maths for year "+str(year)+" </title>"\
                 "<head>"\
                     "{% load static %}"\
                     "<link rel=\"stylesheet\" href=\"{% static 'questions/css/the.css' %}\">"\

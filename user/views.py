@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.template import Template, RequestContext
 from django.http import JsonResponse
 from .models import User
-from questions.src.question.QuestionFactory import QuestionFactory, nof_registered_questions
+from questions.src.question.QuestionFactory import QuestionFactory
 import random
 
 
