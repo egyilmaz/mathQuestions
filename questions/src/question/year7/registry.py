@@ -1,5 +1,5 @@
 def get_nof_questions():
-    return 1
+    return 5
 
 def get_question(qtype):
     if qtype == 0:

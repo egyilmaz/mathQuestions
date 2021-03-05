@@ -2,7 +2,7 @@ import random
 from questions.src.question.BaseQuestion import BaseQuestion
 from questions.src.question.utils.Utility import get_two_distinct
 from questions.src.question.resources.Resource import subjects, values, items
-from questions.src.question.Types import Types, Complexity
+from questions.src.question.year6.Types import Types, Complexity
 
 
 # Question type is x + N = y, worded as, y has N many more items then x.

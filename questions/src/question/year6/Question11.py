@@ -1,7 +1,7 @@
 import random
 from questions.src.question.BaseQuestion import BaseQuestion
 from questions.src.question.resources.Resource import boys, items, simple_fractions
-from questions.src.question.Types import Types, Complexity
+from questions.src.question.year6.Types import Types, Complexity
 
 
 class Question11(BaseQuestion):

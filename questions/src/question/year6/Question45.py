@@ -1,8 +1,6 @@
 import random
 from questions.src.question.BaseQuestion import BaseQuestion
-from questions.src.question.resources.Resource import boys, items, random_fractions
-from questions.src.question.utils.Utility import get_two_distinct
-from questions.src.question.Types import Types, Complexity
+from questions.src.question.year6.Types import Types, Complexity
 
 
 class Question45(BaseQuestion):

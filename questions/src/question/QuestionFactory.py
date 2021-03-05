@@ -1,5 +1,4 @@
 from .utils.Utility import get_n_distinct
-from .Types import Types, Complexity
 from .FilterFactory import FilterFactory
 import logging
 logger = logging.getLogger(__name__)
@@ -35,12 +34,14 @@ class QuestionFactory:
 
         types_str=""
         if types_enabled:
-            for typ in Types:
+            types = self.get_types(year)
+            for typ in types:
                 types_str += "{0}:{1}<br>".format(str(typ),types_dict.get(typ,0))
 
         complexities_str=""
         if complexity_enabled:
-            for cp in Complexity:
+            complexity = self.get_complexity(year)
+            for cp in complexity:
                 complexities_str += "{0}:{1}<br>".format(str(cp),complexities_dict.get(cp,0))
 
         return nof_q + types_str + complexities_str
@@ -94,6 +95,24 @@ class QuestionFactory:
 #                file_a.write('\n')
 
     @staticmethod
+    def get_types(year):
+        if year == 6:
+            from questions.src.question.year6.Types import Types
+            return Types
+        if year == 7:
+            from questions.src.question.year7.Types import Types
+            return Types
+
+    @staticmethod
+    def get_complexity(year):
+        if year == 6:
+            from questions.src.question.year6.Types import Complexity
+            return Complexity
+        if year == 7:
+            from questions.src.question.year7.Types import Complexity
+            return Complexity
+
+    @staticmethod
     def get_nof_questions(year):
         if year == 6:
             from questions.src.question.year6.registry import get_nof_questions
@@ -103,7 +122,7 @@ class QuestionFactory:
             return get_nof_questions()
 
     @staticmethod
-    def __get_question__(qtype, year=6):
+    def __get_question__(qtype, year):
         if year == 6:
             from questions.src.question.year6.registry import get_question
             return get_question(qtype)

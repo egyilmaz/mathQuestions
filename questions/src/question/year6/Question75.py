@@ -1,7 +1,7 @@
 import random
 import matplotlib.pyplot as plt
 from questions.src.question.BaseQuestion import BaseQuestion
-from questions.src.question.Types import Types, Complexity
+from questions.src.question.year6.Types import Types, Complexity
 from django.template import Template
 
 class Question75(BaseQuestion):

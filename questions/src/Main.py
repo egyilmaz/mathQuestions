@@ -1,5 +1,5 @@
 from QuestionFactory import QuestionFactory
-from question.Types import Output
+from questions.src.question.year6.Types import Output
 
 if __name__ == '__main__':
     qf = QuestionFactory(Output.PRINTED)

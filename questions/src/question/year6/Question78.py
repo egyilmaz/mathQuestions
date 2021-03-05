@@ -1,5 +1,5 @@
 from questions.src.question.BaseQuestion import BaseQuestion
-from questions.src.question.Types import Types, Complexity
+from questions.src.question.year6.Types import Types, Complexity
 from fractions import Fraction
 import numpy as np
 import matplotlib.pyplot as plt

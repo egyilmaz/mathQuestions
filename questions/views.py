@@ -8,35 +8,35 @@ MAX_ALLOWED_QUESTIONS = 200
 qf = QuestionFactory()
 
 
-def qa_stats(request, year):
+def req_qa_stats(request, year):
     return HttpResponse( qf.statistics(True,True, year) )
 
-def qa_stats_by_type(request, year):
+def req_qa_stats_by_type(request, year):
     return HttpResponse( qf.statistics(True, False, year) )
 
-def qa_stats_by_complexity(request, year):
+def req_qa_stats_by_complexity(request, year):
     return HttpResponse( qf.statistics(False, True, year) )
 
-def qa_index_start_from(request, nof_questions, start_from, year):
+def req_qa_index_start_from(request, year, nof_questions, start_from):
     nof_registered_questions = qf.get_nof_questions(year)
-    return qa_index_start_end(request, nof_questions, start_from, nof_registered_questions, year)
+    return req_qa_index_start_end(request, year, nof_questions, start_from, nof_registered_questions)
 
-def qa_index_start_end(request, nof_questions, start, end, year):
+def req_qa_index_start_end(request, year, nof_questions, start, end):
     questions = get_question_list(nof_questions, start, end, year)
     return render_qa(request, questions, year)
 
-def qa_questions_answers(request, nof_questions, year):
+def req_qa_questions_answers(request, year, nof_questions):
     nof_registered_questions = qf.get_nof_questions(year)
     questions = get_question_list(nof_questions, 1, nof_registered_questions, year)
     return render_qa(request, questions, year)
 
-def qa_by_type(request, qtype, nof_questions, year):
-    return qa_by_type_complexity(request, qtype, None, nof_questions, year)
+def req_qa_by_type(request, year, qtype, nof_questions):
+    return req_qa_by_type_complexity(request, year, qtype, None, nof_questions)
 
-def qa_by_complexity(request, complexity, nof_questions, year):
-    return qa_by_type_complexity(request, None, complexity, nof_questions, year)
+def req_qa_by_complexity(request, year, complexity, nof_questions):
+    return req_qa_by_type_complexity(request, year, None, complexity, nof_questions)
 
-def qa_by_type_complexity(request, qtype, complexity, nof_questions, year):
+def req_qa_by_type_complexity(request, year, qtype, complexity, nof_questions):
     nof_registered_questions = qf.get_nof_questions(year)
     nof_questions = min(nof_questions, nof_registered_questions)
     questions = qf.ask_filtered(nof_questions, qtype, complexity, year)
@@ -69,15 +69,4 @@ def render_qa(request, questions, year):
         response += "</li>"
     response += "</ol></form></body>"
     return HttpResponse(response)
-
-
-def qa_login(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(request, username=username, password=password)
-    if user is not None:
-        login(request, user)
-        return render(request, 'questions/login_error.html')
-    else:
-        return HttpResponseNotAllowed()
 

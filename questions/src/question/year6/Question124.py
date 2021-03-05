@@ -1,9 +1,6 @@
 from questions.src.question.BaseQuestion import BaseQuestion
-from questions.src.question.Types import Types, Complexity
+from questions.src.question.year6.Types import Types, Complexity
 import random
-import math
-import matplotlib.pyplot as plt
-from matplotlib.patches import Arc
 from io import BytesIO
 import matplotlib.pyplot as plt
 import numpy as np

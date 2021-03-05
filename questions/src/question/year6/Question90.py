@@ -1,5 +1,5 @@
 from questions.src.question.BaseQuestion import BaseQuestion
-from questions.src.question.Types import Types, Complexity
+from questions.src.question.year6.Types import Types, Complexity
 from questions.src.question.utils.Utility import get_n_distinct
 
 def angle_identifier( angle ):

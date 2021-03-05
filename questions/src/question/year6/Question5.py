@@ -1,7 +1,7 @@
 import random
 from questions.src.question.BaseQuestion import BaseQuestion
 from questions.src.question.resources.Resource import args, consts, coeff, values
-from questions.src.question.Types import Types, Complexity
+from questions.src.question.year6.Types import Types, Complexity
 
 
 # Question type is Ax + B = C,
