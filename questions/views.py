@@ -9,13 +9,13 @@ qf = QuestionFactory()
 
 
 def req_qa_stats(request, year):
-    return HttpResponse( qf.statistics(True,True, year) )
+    return HttpResponse(qf.statistics(True, True, year))
 
 def req_qa_stats_by_type(request, year):
-    return HttpResponse( qf.statistics(True, False, year) )
+    return HttpResponse(qf.statistics(True, False, year))
 
 def req_qa_stats_by_complexity(request, year):
-    return HttpResponse( qf.statistics(False, True, year) )
+    return HttpResponse(qf.statistics(False, True, year))
 
 def req_qa_index_start_from(request, year, nof_questions, start_from):
     nof_registered_questions = qf.get_nof_questions(year)
@@ -26,6 +26,7 @@ def req_qa_index_start_end(request, year, nof_questions, start, end):
     return render_qa(request, questions, year)
 
 def req_qa_questions_answers(request, year, nof_questions):
+    nof_questions = min(nof_questions, MAX_ALLOWED_QUESTIONS)
     nof_registered_questions = qf.get_nof_questions(year)
     questions = get_question_list(nof_questions, 1, nof_registered_questions, year)
     return render_qa(request, questions, year)
@@ -37,14 +38,15 @@ def req_qa_by_complexity(request, year, complexity, nof_questions):
     return req_qa_by_type_complexity(request, year, None, complexity, nof_questions)
 
 def req_qa_by_type_complexity(request, year, qtype, complexity, nof_questions):
-    nof_registered_questions = qf.get_nof_questions(year)
-    nof_questions = min(nof_questions, nof_registered_questions)
+    nof_questions = min(nof_questions, MAX_ALLOWED_QUESTIONS)
     questions = qf.ask_filtered(nof_questions, qtype, complexity, year)
     return render_qa(request, questions, year)
 
 def get_question_list(nof_questions, start, end, year):
     nof_registered_questions = qf.get_nof_questions(year)
-    nof_questions = min(nof_questions, nof_registered_questions)
+    start = min(start, nof_registered_questions)
+    end = min(end, nof_registered_questions)
+    nof_questions = min(nof_questions, MAX_ALLOWED_QUESTIONS)
     return qf.ask_question(nof_questions, start, end, year) #return list of questions
 
 def render_qa(request, questions, year):

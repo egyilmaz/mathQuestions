@@ -2,7 +2,12 @@ from enum import Enum
 
 
 class Types(Enum):
-    Equation_First_order_one_unknown=1,
+    Simplfy_expression=1,
+    Factorise_expression=2,
+    prime_factors=3,
+    hcf = 4,
+    lcm = 5,
+    algebra_negative_numbers=6,
 
 class Complexity(Enum):
     Basic = 1,
