@@ -8,6 +8,12 @@ class Types(Enum):
     hcf = 4,
     lcm = 5,
     algebra_negative_numbers=6,
+    fraction_add=7,
+    fraction_unknown=8,
+    word_expression=9,
+    quadratic_basic=10,
+    fraction_to_whole=11,
+    fraction_equation=12,
 
 class Complexity(Enum):
     Basic = 1,

@@ -3,6 +3,11 @@ from questions.src.question.utils.Utility import get_unsorted_n_distinct, get_tw
 from questions.src.question.year7.Types import Types, Complexity
 from itertools import chain
 
+def add_plus_sign(arr):
+    res=[arr[0]]
+    for i in arr[1:]:
+        res.append(str(i) if i < 0 else f"+{i}")
+    return res
 
 class Question1(BaseQuestion):
 
@@ -12,16 +17,14 @@ class Question1(BaseQuestion):
         self.type = Types.Simplfy_expression
         self.complexity = Complexity.Basic
         self.var1, self.var2 = get_two_distinct(['x', 'y', 'z', 't', 'a', 'b', 'c'])
-        rc = get_unsorted_n_distinct(Question1.coeff, 4)
-        self.c1, self.c2, self.c3, self.c4 = rc[0], rc[1], rc[2], rc[3]
+        rc = get_unsorted_n_distinct(Question1.coeff, 6)
+        cr = add_plus_sign(rc)
         # adding + for positive values for representation, keeping them separate from their actual value above.
-        cr=[]
-        for i in rc[1:]:
-            cr.append(str(i) if i<0 else f"+{i}")
         # note we are using first coefficient as is, regardless of its sign, only the positives are marked with + after first one
-        self.q = r'${c1}{v1}$  ${c2}{v2}$  ${c3}{v1}$  ${c4}{v2}$'.format(c1=rc[0], v1=self.var1, c2=cr[0], v2=self.var2,
-                                                                 c3=cr[1], c4=cr[2])
-        self.res = r'{r1}{v1} {r2}{v2}'.format(r1=self.c1+self.c3, v1=self.var1, r2=self.c2+self.c4, v2=self.var2)
+        self.q = r'${c1}{v1}{c6}{c2}{v2}{c5}{c3}{v1}{c4}{v2}$'.format(c1=cr[0], v1=self.var1, c2=cr[1], v2=self.var2,
+                                                                 c3=cr[2], c4=cr[3], c5=cr[4], c6=cr[5])
+        rx = add_plus_sign([rc[0]+rc[2], rc[1]+rc[3], rc[4]+rc[5]])
+        self.res = r'{r1}{v1} {r2}{v2} {r3}'.format(r1=rx[0], v1=self.var1, r2=rx[1], v2=self.var2, r3=rx[2])
 
     def question(self):
         return "Simplfy "
