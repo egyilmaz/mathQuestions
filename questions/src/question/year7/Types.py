@@ -14,6 +14,7 @@ class Types(Enum):
     quadratic_basic=10,
     fraction_to_whole=11,
     fraction_equation=12,
+    power=13,
 
 class Complexity(Enum):
     Basic = 1,

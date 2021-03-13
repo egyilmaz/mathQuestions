@@ -25,7 +25,7 @@ class Question3(BaseQuestion):
         self.type = Types.prime_factors
         self.complexity = Complexity.Basic
         facs = random.sample(Question3.q, 4)
-        self.q = f"Factorise the following numbers  {' , '.join([str(i) for i in facs])}"
+        self.q = f"What are the prime factorizations of the following numbers  {' , '.join([str(i) for i in facs])}"
         res = []
         for fac in facs:
             pfacs = get_pfac(fac)
