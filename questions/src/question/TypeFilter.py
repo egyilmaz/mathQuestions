@@ -1,4 +1,5 @@
 from .BaseFilter import BaseFilter
+
 class TypeFilter(BaseFilter):
     def __init__(self, qtype):
         self.qtype = qtype
