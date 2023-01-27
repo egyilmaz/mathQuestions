@@ -25,7 +25,7 @@ SECRET_KEY = '1bu^99rc!$dps^-_w(%ys7c*32@y+a7(fmgvv^voildp4&mssq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','reviewquestions.herokuapp.com']
+ALLOWED_HOSTS = ['localhost','reviewquestions.herokuapp.com','*']
 
 
 # Application definition
