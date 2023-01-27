@@ -1,9 +1,9 @@
 # mathQuestions
 Generate math questions from templates
 
-served on heroku
+served on pythonanywhere
 
-https://reviewquestions.herokuapp.com/questions/7/15
+http://egyilmaz.pythonanywhere.com/questions/7/15
 
 Using the URLconf defined in mathQuestions.urls, Django tried these URL patterns, in this order:
 
