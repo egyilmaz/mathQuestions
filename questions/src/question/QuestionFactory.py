@@ -102,6 +102,9 @@ class QuestionFactory:
         if year == 7:
             from questions.src.question.year7.Types import Types
             return Types
+        if year == 9:
+            from questions.src.question.year9.Types import Types
+            return Types
 
     @staticmethod
     def get_complexity(year):
@@ -110,6 +113,9 @@ class QuestionFactory:
             return Complexity
         if year == 7:
             from questions.src.question.year7.Types import Complexity
+            return Complexity
+        if year == 9:
+            from questions.src.question.year9.Types import Complexity
             return Complexity
 
     @staticmethod
@@ -120,6 +126,9 @@ class QuestionFactory:
         if year == 7:
             from questions.src.question.year7.registry import get_nof_questions
             return get_nof_questions()
+        if year == 9:
+            from questions.src.question.year9.registry import get_nof_questions
+            return get_nof_questions()
 
     @staticmethod
     def __get_question__(qtype, year):
@@ -128,4 +137,7 @@ class QuestionFactory:
             return get_question(qtype)
         if year == 7:
             from questions.src.question.year7.registry import get_question
+            return get_question(qtype)
+        if year == 9:
+            from questions.src.question.year9.registry import get_question
             return get_question(qtype)

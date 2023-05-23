@@ -1,4 +1,7 @@
+import matplotlib
+matplotlib.use('agg')
 import matplotlib.pyplot as plt
+plt.rc('font', size=28)   
 from io import BytesIO
 import base64
 from django.template import Template
@@ -61,9 +64,9 @@ class BaseQuestion:
         plt.savefig(buf, format='PNG')
         return self.toBuffer( buf )
 
-    def encode_graphics(self, a):
+    def encode_graphics(self, a, fonts=11):
         plt.axis('off')
-        plt.text(-1, 1, a, fontsize=11)
+        plt.text(-1, 1, a, fontsize=fonts)
         plt.gcf().set_size_inches(2,0.01)
         buf = BytesIO()
         plt.savefig(buf, format='PNG', bbox_inches='tight', pad_inches=0)
