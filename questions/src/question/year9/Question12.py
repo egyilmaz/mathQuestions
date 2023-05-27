@@ -5,28 +5,31 @@ from sympy import solve, Eq
 from sympy.abc import x, y
 import random
 
-class Question7(BaseQuestion):
+class Question12(BaseQuestion):
 
     def __init__(self):
-        self.type = Types.solve_quadratic
-        self.complexity = Complexity.Basic
-        cand = [-6,-5,-4,-3,-2,2,3,4,5,6]
+        self.type = Types.find_roots
+        self.complexity = Complexity.Moderate
+        cand = [-7,-6,-5,-4,-3,-2,2,3,4,5,6,7]
         b = random.sample(cand,1)[0]
         d = random.sample(cand,1)[0]
+
         mid = d+b
         if mid > 0:
             mid = f"+{mid}"
         last = d*b
         if last > 0:
-            last = f"+{last}"
+            last = f"+{last}"        
+
         if mid == 0:
             self.q = f'$x^2 {last}=0$'
         else:
             self.q = f'$x^2 {mid}x {last}=0$'
-        self.res =  solve([Eq((x + b)*(x+d), 0)])
+
+        self.res =  solve([Eq((x + b)*(x + d), 0)])
 
     def question(self):
-        return "Solve "
+        return "Find the roots of  the given quadratic equation "
 
     def graphic(self):
         return self.encode_graphics(self.q)

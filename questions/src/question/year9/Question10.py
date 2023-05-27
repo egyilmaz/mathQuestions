@@ -5,29 +5,23 @@ from sympy import solve, Eq
 from sympy.abc import x, y
 import random
 
-class Question6(BaseQuestion):
+class Question10(BaseQuestion):
 
     def __init__(self):
-        self.type = Types.solve_quadratic
+        self.type = Types.square_diff
         self.complexity = Complexity.Moderate
-        cand = [-6,-5,-4,-3,-2,2,3,4,5,6]
-        a = abs(random.sample(cand,1)[0])
-        b = random.sample(cand,1)[0]
-        c = abs(random.sample(cand,1)[0])
-        d = random.sample(cand,1)[0]
-
-        mid = a*d+b*c
-        if mid > 0:
-            mid = f"+{mid}"
-        last = d*b
-        if last > 0:
-            last = f"+{last}"        
+        cand = [1,2,3,4,5,6,7,8,9]
+        a = random.sample(cand,1)[0]
+        b = random.sample([2,3,4],1)[0]
+        #the form is a* (x^2 -b^2)
+        last = a*b*b       
+        self.res =  solve([Eq(a*(x**2 - b**2), 0)])
+        if a == 1:
+            a = ""
+        self.q = f'${a}x^2 -{last}$'
         
-        self.q = f'${a*c}x^2 {mid}x {last}=0$'
-        self.res =  solve([Eq((a*x + b)*(c*x+d), 0)])
-
     def question(self):
-        return "Solve "
+        return "Factorise "
 
     def graphic(self):
         return self.encode_graphics(self.q)

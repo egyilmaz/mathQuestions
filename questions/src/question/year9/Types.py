@@ -8,6 +8,11 @@ class Types(Enum):
     expand=4,
     solve_quadratic=5,
     expand_triple=6,
+    square_diff=7,
+    quad_formula=8,
+    find_roots=9,
+    parabola=10,
+    quad_trans=11,
 
 class Complexity(Enum):
     Basic = 1,

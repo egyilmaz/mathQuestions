@@ -5,29 +5,23 @@ from sympy import solve, Eq
 from sympy.abc import x, y
 import random
 
-class Question6(BaseQuestion):
+class Question11(BaseQuestion):
 
     def __init__(self):
-        self.type = Types.solve_quadratic
+        self.type = Types.quad_formula
         self.complexity = Complexity.Moderate
-        cand = [-6,-5,-4,-3,-2,2,3,4,5,6]
-        a = abs(random.sample(cand,1)[0])
-        b = random.sample(cand,1)[0]
-        c = abs(random.sample(cand,1)[0])
-        d = random.sample(cand,1)[0]
-
-        mid = a*d+b*c
-        if mid > 0:
-            mid = f"+{mid}"
-        last = d*b
-        if last > 0:
-            last = f"+{last}"        
-        
-        self.q = f'${a*c}x^2 {mid}x {last}=0$'
-        self.res =  solve([Eq((a*x + b)*(c*x+d), 0)])
+        cand = [(3, 8, 2), (1, 5, -12), (1, -7, 3), (2,3,-7), (2, 9, -3), (7, 8, 1), (3, -1, -1), (1, -7, 4)]
+        a,b,c = random.sample(cand,1)[0]
+        #the form is a*x^2+bx+c       
+        self.res =  solve([Eq(a*x**2 + b*x +c, 0)])
+        if a == 1:
+            a = ""
+        if b == 1:
+            b = ""
+        self.q = f'${a}x^2 + {b}x + {c}=0$'
 
     def question(self):
-        return "Solve "
+        return "Solve the equation and give your answer correct to 3 significant figures "
 
     def graphic(self):
         return self.encode_graphics(self.q)

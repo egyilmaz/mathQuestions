@@ -5,14 +5,13 @@ from sympy import solve, Eq
 from sympy.abc import x, y
 import random
 
-class Question7(BaseQuestion):
+class Question14(BaseQuestion):
 
     def __init__(self):
-        self.type = Types.solve_quadratic
-        self.complexity = Complexity.Basic
-        cand = [-6,-5,-4,-3,-2,2,3,4,5,6]
-        b = random.sample(cand,1)[0]
-        d = random.sample(cand,1)[0]
+        self.type = Types.quad_trans
+        self.complexity = Complexity.Moderate
+        b = random.sample([-6, -4, -2, 2, 4, 6],1)[0]
+        d = 2*random.sample([-8, -6, -4, -2, 2, 4, 6, 8],1)[0]
         mid = d+b
         if mid > 0:
             mid = f"+{mid}"
@@ -20,13 +19,18 @@ class Question7(BaseQuestion):
         if last > 0:
             last = f"+{last}"
         if mid == 0:
-            self.q = f'$x^2 {last}=0$'
+            asked = f'$x^2 {last}$'
         else:
-            self.q = f'$x^2 {mid}x {last}=0$'
-        self.res =  solve([Eq((x + b)*(x+d), 0)])
+            asked = f'$x^2 {mid}x {last}$'
+
+        roots =  solve([Eq((x + b)*(x+d), 0)])
+        p = (d+b)/2
+        q = -(p*p - d*b)
+        self.res = f"$(x + {p})^2 {q}$ and p={p}, q={q}"
+        self.q = f" {asked} in $(x+p)^2 + q$ form"
 
     def question(self):
-        return "Solve "
+        return "Rewrite "
 
     def graphic(self):
         return self.encode_graphics(self.q)
