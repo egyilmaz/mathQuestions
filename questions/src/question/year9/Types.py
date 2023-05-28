@@ -13,6 +13,9 @@ class Types(Enum):
     find_roots=9,
     parabola=10,
     quad_trans=11,
+    first_exam=12,
+    second_exam=13,
+    quad_challenge=14,
 
 class Complexity(Enum):
     Basic = 1,
