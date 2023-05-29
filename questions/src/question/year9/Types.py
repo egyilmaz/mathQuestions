@@ -16,6 +16,9 @@ class Types(Enum):
     first_exam=12,
     second_exam=13,
     quad_challenge=14,
+    line_equation=15,
+    line_equation_paralel=16,
+    line_equation_perpendicular=17,
 
 class Complexity(Enum):
     Basic = 1,
