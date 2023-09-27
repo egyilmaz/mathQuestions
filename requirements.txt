@@ -2,7 +2,6 @@ sympy
 roman
 django
 gunicorn
-django-heroku
 matplotlib
 whitenoise
 numpy

@@ -1,9 +1,27 @@
 # mathQuestions
+## Installation on ubuntu
+
+- install python3.10.X or above
+- install pg_config through postgre lib
+
+```
+sudo apt install libpq-dev  
+```
+
+- install the requirements
+```
+pip3 install -r requirements.txt
+```
+## Run a local copy
+
+```
+python3 manage.py runserver
+```
+Use a browser and visit below link for 5 questions from year 7
+```
+http://localhost:8000/questions/7/5
+```
 Generate math questions from templates
-
-served on pythonanywhere
-
-http://egyilmaz.pythonanywhere.com/questions/7/15
 
 Using the URLconf defined in mathQuestions.urls, Django tried these URL patterns, in this order:
 
