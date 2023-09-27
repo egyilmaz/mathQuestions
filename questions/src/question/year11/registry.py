@@ -1,5 +1,5 @@
 def get_nof_questions():
-    return 20
+    return 24
 
 def get_question(qtype):
     if qtype == 0:
@@ -61,5 +61,16 @@ def get_question(qtype):
         return Question19()
     if qtype == 19:
         from questions.src.question.year11.Question20 import Question20
-        return Question20()
-    
+        return Question20()    
+    if qtype == 20:
+        from questions.src.question.year11.Question21 import Question21
+        return Question21()
+    if qtype == 21:
+        from questions.src.question.year11.Question22 import Question22
+        return Question22()
+    if qtype == 22:
+        from questions.src.question.year11.Question23 import Question23
+        return Question23()
+    if qtype == 23:
+        from questions.src.question.year11.Question24 import Question24
+        return Question24()

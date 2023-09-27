@@ -19,6 +19,8 @@ class Types(Enum):
     line_equation=15,
     line_equation_paralel=16,
     line_equation_perpendicular=17,
+    simplify_power=18,
+    find_value = 19,
 
 class Complexity(Enum):
     Basic = 1,
