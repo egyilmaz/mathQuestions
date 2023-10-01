@@ -21,6 +21,7 @@ class Types(Enum):
     line_equation_perpendicular=17,
     simplify_power=18,
     find_value = 19,
+    translate_rotate = 20,
 
 class Complexity(Enum):
     Basic = 1,
