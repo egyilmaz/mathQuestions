@@ -22,6 +22,7 @@ class Types(Enum):
     simplify_power=18,
     find_value = 19,
     translate_rotate = 20,
+    ratio = 21,
 
 class Complexity(Enum):
     Basic = 1,
