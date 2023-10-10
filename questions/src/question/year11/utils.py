@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 def draw_triangle(x,y):
     plt.plot(x + [x[0]], y + [y[0]], marker='o', linestyle='-')
 
+def draw_rectangle(x,y):
+    plt.plot(x + [x[0]], y + [y[0]], marker='o', linestyle='-')
 
 def cartesian(xmin, xmax, ymin, ymax):
     ticks_frequency = 2
