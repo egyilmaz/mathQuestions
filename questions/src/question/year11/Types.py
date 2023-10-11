@@ -23,6 +23,7 @@ class Types(Enum):
     find_value = 19,
     translate_rotate = 20,
     ratio = 21,
+    trigonometry=22,
 
 class Complexity(Enum):
     Basic = 1,
