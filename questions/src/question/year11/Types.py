@@ -24,6 +24,7 @@ class Types(Enum):
     translate_rotate = 20,
     ratio = 21,
     trigonometry=22,
+    factorise=23,
 
 class Complexity(Enum):
     Basic = 1,
