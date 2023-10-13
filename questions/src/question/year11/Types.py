@@ -25,6 +25,7 @@ class Types(Enum):
     ratio = 21,
     trigonometry=22,
     factorise=23,
+    boxplot=24,
 
 class Complexity(Enum):
     Basic = 1,
