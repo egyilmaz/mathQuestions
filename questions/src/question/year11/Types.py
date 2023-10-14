@@ -26,6 +26,8 @@ class Types(Enum):
     trigonometry=22,
     factorise=23,
     boxplot=24,
+    tap_tank=25,
+    repeating=26,
 
 class Complexity(Enum):
     Basic = 1,
