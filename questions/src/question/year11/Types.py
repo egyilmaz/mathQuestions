@@ -28,6 +28,7 @@ class Types(Enum):
     boxplot=24,
     tap_tank=25,
     repeating=26,
+    surd_denum=27,
 
 class Complexity(Enum):
     Basic = 1,
