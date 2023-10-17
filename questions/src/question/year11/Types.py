@@ -29,6 +29,7 @@ class Types(Enum):
     tap_tank=25,
     repeating=26,
     surd_denum=27,
+    sphere=28,
 
 class Complexity(Enum):
     Basic = 1,
