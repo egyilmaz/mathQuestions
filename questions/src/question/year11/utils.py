@@ -7,7 +7,7 @@ def draw_triangle(x,y):
 def draw_rectangle(x,y):
     plt.plot(x + [x[0]], y + [y[0]], marker='o', linestyle='-')
 
-def cartesian(xmin, xmax, ymin, ymax):
+def cartesian(xmin, xmax, ymin, ymax, ticks=None):
     ticks_frequency = 2
     # Plot points
     fig, ax = plt.subplots(figsize=(8, 8))
@@ -23,14 +23,21 @@ def cartesian(xmin, xmax, ymin, ymax):
     ax.set_xlabel('x', size=14, labelpad=-24, x=1.03)
     ax.set_ylabel('y', size=14, labelpad=-21, y=1.02, rotation=0)
     # Create custom major ticks to determine position of tick labels
-    x_ticks = np.arange(xmin, xmax+1, ticks_frequency)
-    y_ticks = np.arange(ymin, ymax+1, ticks_frequency)
-    ax.set_xticks(x_ticks[x_ticks != 0])
-    ax.set_yticks(y_ticks[y_ticks != 0])
-    # Create minor ticks placed at each integer to enable drawing of minor grid
-    # lines: note that this has no effect in this example with ticks_frequency=1
-    ax.set_xticks(np.arange(xmin, xmax+1), minor=True)
-    ax.set_yticks(np.arange(ymin, ymax+1), minor=True)
+    if ticks == None:
+        x_ticks = np.arange(xmin, xmax+1, ticks_frequency)
+        y_ticks = np.arange(ymin, ymax+1, ticks_frequency)
+        ax.set_xticks(x_ticks[x_ticks != 0])
+        ax.set_yticks(y_ticks[y_ticks != 0])
+        # Create minor ticks placed at each integer to enable drawing of minor grid
+        # lines: note that this has no effect in this example with ticks_frequency=1
+        ax.set_xticks(np.arange(xmin, xmax+1), minor=True)
+        ax.set_yticks(np.arange(ymin, ymax+1), minor=True)
+    else: 
+        x_ticks = ticks[0]
+        y_ticks = ticks[1]
+        ax.set_xticks(x_ticks)
+        ax.set_yticks(y_ticks)
+
     # Draw major and minor grid lines
     ax.grid(which='both', color='grey', linewidth=1, linestyle='-', alpha=0.2)
     # Draw arrows

@@ -30,6 +30,7 @@ class Types(Enum):
     repeating=26,
     surd_denum=27,
     sphere=28,
+    function=29,
 
 class Complexity(Enum):
     Basic = 1,

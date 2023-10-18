@@ -1,5 +1,4 @@
 from questions.src.question.BaseQuestion import BaseQuestion
-from questions.src.question.utils.Utility import get_unsorted_n_distinct, get_two_distinct
 from questions.src.question.year11.Types import Types, Complexity
 import sympy as sp
 import random
@@ -7,7 +6,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 
 from io import BytesIO
-from .utils import cartesian, draw_rectangle, draw_triangle
+from .utils import cartesian
 
 class Question30(BaseQuestion):
     def __init__(self):

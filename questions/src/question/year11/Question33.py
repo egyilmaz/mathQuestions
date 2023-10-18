@@ -1,8 +1,6 @@
 from questions.src.question.BaseQuestion import BaseQuestion
-from questions.src.question.utils.Utility import get_unsorted_n_distinct, get_two_distinct
 from questions.src.question.year11.Types import Types, Complexity
 import sympy as sp
-from sympy.abc import x, y
 import random
 
 class Question33(BaseQuestion):

@@ -1,12 +1,7 @@
 from questions.src.question.BaseQuestion import BaseQuestion
-from questions.src.question.utils.Utility import get_unsorted_n_distinct, get_two_distinct
 from questions.src.question.year11.Types import Types, Complexity
-from itertools import chain
-import numpy as np
 import random
-import math
 import matplotlib.pyplot as plt
-from matplotlib.patches import Arc
 from io import BytesIO
 from .utils import cartesian, rotate, draw_triangle
 

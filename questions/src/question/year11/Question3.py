@@ -1,7 +1,5 @@
 from questions.src.question.BaseQuestion import BaseQuestion
-from questions.src.question.utils.Utility import get_unsorted_n_distinct, get_two_distinct
 from questions.src.question.year11.Types import Types, Complexity
-from itertools import chain
 import random
 import sympy as sym
 
