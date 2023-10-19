@@ -31,6 +31,7 @@ class Types(Enum):
     surd_denum=27,
     sphere=28,
     function=29,
+    circle=30,
 
 class Complexity(Enum):
     Basic = 1,
