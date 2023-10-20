@@ -35,7 +35,8 @@ class Question48(BaseQuestion):
         beta = f"$\\beta$"
         ax.text(0.2,-0.1, theta, fontsize=14)
         ax.text(1.6,-0.3, beta, fontsize=14)
-        ax.set_title(f"Given {theta}={self.theta}, find {beta}",fontsize=12)
+        ax.text(-0.2,0,'O', fontsize=12)
+        ax.set_title(f"Given {theta}={self.theta} and O is the center of the circle, find {beta}",fontsize=10)
         # Set axis limits
         ax.set_xlim(-1.2, 2.3)
         ax.set_ylim(-1.2, 1.2)
