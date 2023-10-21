@@ -1,6 +1,21 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
+class Vector():
+    def __init__(self, x_start, y_start, x_end, y_end, color='blue'):
+        self.x_start = x_start
+        self.y_start = y_start
+        self.x_end = x_end
+        self.y_end = y_end
+        self.color = color
+
+    def draw(self, ax):
+        hw = 0.2
+        hl = 0.3
+        ax.arrow(self.x_start, self.y_start, self.x_end - self.x_start, self.y_end - self.y_start, head_width=hw, head_length=hl, fc=self.color, ec=self.color, length_includes_head=True)
+
+
 def draw_triangle(x,y):
     plt.plot(x + [x[0]], y + [y[0]], marker='o', linestyle='-')
 

@@ -34,6 +34,7 @@ class Types(Enum):
     circle=30,
     function_graph=31,
     inequality=32,
+    vector=33,
 
 class Complexity(Enum):
     Basic = 1,
