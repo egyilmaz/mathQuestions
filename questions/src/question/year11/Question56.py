@@ -5,15 +5,16 @@ import matplotlib.pyplot as plt
 from .utils import Vector, cartesian
 from io import BytesIO
 
-class Question54(BaseQuestion):
+class Question56(BaseQuestion):
 
     def __init__(self):
         self.type = Types.vector_add
         self.complexity = Complexity.Basic
-        theList=[(Vector(0, 0, 3, 0),  Vector(0, 0, -4, 0)),
-                 (Vector(0, 0, -3, 0),  Vector(0, 0, 5, 0)),
-                 (Vector(0, 0, 0, -3),  Vector(0, 0, 0, 3)),
-                 (Vector(0, 0, 0, -5),  Vector(0, 0, 0, 4)),
+        theList=[(Vector(3, 3, 1, 0),  Vector(1, 0, -4, 3)),
+                 (Vector(2, 2, 1, 0),  Vector(1, 0, -3, 5)),
+                 (Vector(0, 0, -2, 2),  Vector(0, 0, -2, -2)),
+                 (Vector(0, 0, -2, -2),  Vector(0, 0, 2, -2)),
+                 (Vector(1, 0, -3, 5), Vector(1, 0, -1, -2))
                  ]
         self.v1, self.v2 = random.sample(theList, 1)[0]
 

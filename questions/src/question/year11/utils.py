@@ -15,6 +15,17 @@ class Vector():
         hl = 0.3
         ax.arrow(self.x_start, self.y_start, self.x_end - self.x_start, self.y_end - self.y_start, head_width=hw, head_length=hl, fc=self.color, ec=self.color, length_includes_head=True)
 
+    def add(self, v2, color='red'):
+        v1_x_comp = self.x_end - self.x_start
+        v1_y_comp = self.y_end - self.y_start
+        v2_x_comp = v2.x_end - v2.x_start
+        v2_y_comp = v2.y_end - v2.y_start
+        total_x = v1_x_comp + v2_x_comp
+        total_y = v1_y_comp + v2_y_comp
+        return Vector(self.x_start, self.y_start, self.x_start+total_x, self.y_start+total_y, color=color)
+
+def draw_line(ax, start_x, start_y, end_x, end_y):
+    ax.arrow(start_x, start_y, end_x - start_x, end_y - start_y)
 
 def draw_triangle(x,y):
     plt.plot(x + [x[0]], y + [y[0]], marker='o', linestyle='-')

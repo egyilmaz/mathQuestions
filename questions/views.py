@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.template import Template, RequestContext
 from questions.src.question.QuestionFactory import QuestionFactory
 from django.contrib.auth import authenticate, login
+import matplotlib.pyplot as plt
 
 MAX_ALLOWED_QUESTIONS = 200
 qf = QuestionFactory()
@@ -69,6 +70,7 @@ def render_qa(request, questions, year):
         response += template.render(c)
         qid += 1
         response += "</li>"
+        plt.close('all') # save memory by closing figures/plots
     response += "</ol></form></body>"
     return HttpResponse(response)
 

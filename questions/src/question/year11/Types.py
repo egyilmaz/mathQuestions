@@ -35,6 +35,8 @@ class Types(Enum):
     function_graph=31,
     inequality=32,
     vector=33,
+    vector_add=34,
+    probability=35,
 
 class Complexity(Enum):
     Basic = 1,
